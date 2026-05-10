@@ -80,6 +80,28 @@ a {
   padding: 48px;
 }
 
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(220px, 0.9fr);
+  align-items: center;
+  gap: 28px;
+}
+
+.hero-photo-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-photo {
+  width: min(100%, 300px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: var(--panel);
+}
+
 .eyebrow {
   color: var(--accent);
   font-weight: 600;
@@ -264,5 +286,13 @@ a {
 
   .hero-content {
     padding: 28px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-photo {
+    width: min(100%, 240px);
   }
 }

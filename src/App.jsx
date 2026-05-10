@@ -110,16 +110,29 @@ function App() {
       <main>
         <section className="hero">
           <div className="hero-content">
-            <p className="eyebrow">Software Development Engineer</p>
-            <h1>Tangudu Harsha Vardhan</h1>
-            <p className="hero-text">
-              Enthusiastic software engineer with a solid Python background. Passionate about
-              innovative problem-solving and continuous learning. Eager to bring fresh perspectives
-              and drive progress.
-            </p>
-            <div className="hero-actions">
-              <a className="btn btn-primary" href="#projects">View Projects</a>
-              <a className="btn btn-secondary" href="#contact">Contact Me</a>
+            <div className="hero-grid">
+              <div className="hero-copy">
+                <p className="eyebrow">Software Development Engineer</p>
+                <h1>Tangudu Harsha Vardhan</h1>
+                <p className="hero-text">
+                  Enthusiastic software engineer with a solid Python background. Passionate about
+                  innovative problem-solving and continuous learning. Eager to bring fresh perspectives
+                  and drive progress.
+                </p>
+                <div className="hero-actions">
+                  <a className="btn btn-primary" href="#projects">View Projects</a>
+                  <a className="btn btn-secondary" href="#contact">Contact Me</a>
+                </div>
+              </div>
+              <div className="hero-photo-wrap">
+                <img
+                  className="hero-photo"
+                  src="https://github.com/Harsha-Vardhan-Tangudu.png"
+                  alt="Tangudu Harsha Vardhan"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
             </div>
           </div>
         </section>
