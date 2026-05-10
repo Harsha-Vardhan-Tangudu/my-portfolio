@@ -37,6 +37,53 @@ const skills = {
   "Developer Tools": ["GitHub", "VS Code", "IntelliJ IDEA", "Jupyter Notebook", "JFLAP"],
 }
 
+const skillSpotlight = {
+  Experienced: [
+    {
+      name: "C++ Backend Engineering",
+      level: 90,
+      note: "Production work in MRS and CIT modules at Amadeus.",
+    },
+    {
+      name: "Angular Frontend Development",
+      level: 86,
+      note: "Feature delivery, bug fixes, and component upgrades in CIT.",
+    },
+    {
+      name: "Spring Boot & Java",
+      level: 84,
+      note: "Built TPS logic modules and backend service integrations.",
+    },
+    {
+      name: "SQL + Monitoring",
+      level: 82,
+      note: "Database-backed metrics and Grafana dashboards for operations.",
+    },
+  ],
+  "Booming Skills": [
+    {
+      name: "Cloud & DevOps",
+      level: 80,
+      note: "Hands-on learning with Docker, Kubernetes, Linux, and Azure.",
+    },
+    {
+      name: "AI/ML Systems",
+      level: 76,
+      note: "Applied ML across intrusion detection and phishing projects.",
+    },
+    {
+      name: "IoT + Embedded Automation",
+      level: 74,
+      note: "ESP32, sensors, and smart automation in field projects.",
+    },
+    {
+      name: "Security Engineering",
+      level: 72,
+      note: "DMARC compliance checks and cybersecurity-focused implementations.",
+    },
+  ],
+}
+
 const experience = [
   {
     role: "Software Development Engineer 1",
@@ -221,6 +268,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("")
   const [darkMode, setDarkMode] = useState(false)
   const [expandedProject, setExpandedProject] = useState(null)
+  const [skillTrack, setSkillTrack] = useState("Experienced")
   const navIds = ["about", "experience", "skills", "projects", "contact"]
   const activeSection = useActiveSection(navIds)
   const typed = useTypewriter(["Software Engineer", "ML Enthusiast", "IoT Builder", "Problem Solver"])
@@ -240,6 +288,8 @@ function App() {
     })
   }, [activeFilter, searchQuery, taggedProjects])
 
+  const spotlightSkills = useMemo(() => skillSpotlight[skillTrack] ?? [], [skillTrack])
+
   const stats = [
     { label: "Projects", value: taggedProjects.length, icon: "\ud83d\ude80" },
     { label: "Publications", value: publications.length, icon: "\ud83d\udcc4" },
@@ -252,7 +302,6 @@ function App() {
       <div className="orb orb-1" aria-hidden="true" />
       <div className="orb orb-2" aria-hidden="true" />
       <div className="orb orb-3" aria-hidden="true" />
-      <div className="bg-grid" aria-hidden="true" />
 
       <header className="navbar">
         <div className="brand">
@@ -372,19 +421,56 @@ function App() {
 
         <RevealSection id="skills" className="section">
           <div className="section-label">Skills</div>
-          <h2 className="section-heading">Tech Stack</h2>
-          <div className="skills-groups">
-            {Object.entries(skills).map(([group, items]) => (
-              <div key={group} className="skill-group">
-                <h3 className="skill-group-title">{group}</h3>
-                <div className="skill-pills">
-                  {items.map((item) => (
-                    <span key={item} className="skill-pill">{item}</span>
-                  ))}
-                </div>
+          <h2 className="section-heading">Experience-Driven Skill Focus</h2>
+
+          <div className="skill-spotlight">
+            <div className="skill-spotlight-head">
+              <p>What I am strongest at now and where I am growing the fastest.</p>
+              <div className="skill-track-switch" role="tablist" aria-label="Skill highlight mode">
+                {Object.keys(skillSpotlight).map((track) => (
+                  <button
+                    key={track}
+                    type="button"
+                    className={`skill-track-btn ${skillTrack === track ? "active" : ""}`}
+                    onClick={() => setSkillTrack(track)}
+                  >
+                    {track}
+                  </button>
+                ))}
               </div>
-            ))}
+            </div>
+
+            <div className="spotlight-grid">
+              {spotlightSkills.map((item) => (
+                <article key={item.name} className="spotlight-card">
+                  <div className="spotlight-top">
+                    <h3>{item.name}</h3>
+                    <span>{item.level}%</span>
+                  </div>
+                  <div className="spotlight-meter" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={item.level}>
+                    <div style={{ width: `${item.level}%` }} />
+                  </div>
+                  <p>{item.note}</p>
+                </article>
+              ))}
+            </div>
           </div>
+
+          <details className="skill-inventory">
+            <summary>View full skill inventory</summary>
+            <div className="skills-groups">
+              {Object.entries(skills).map(([group, items]) => (
+                <div key={group} className="skill-group">
+                  <h3 className="skill-group-title">{group}</h3>
+                  <div className="skill-pills">
+                    {items.map((item) => (
+                      <span key={item} className="skill-pill">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </details>
         </RevealSection>
 
         <RevealSection id="projects" className="section">

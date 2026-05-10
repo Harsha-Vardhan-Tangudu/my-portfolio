@@ -337,6 +337,120 @@ img { display: block; max-width: 100%; }
 .point-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
 
 /* ── SKILLS ── */
+.skill-spotlight {
+  background: linear-gradient(145deg, rgba(59,130,246,0.16), rgba(6,182,212,0.12));
+  border: 1px solid rgba(59,130,246,0.28);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 16px;
+}
+
+.skill-spotlight-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.skill-spotlight-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  max-width: 58ch;
+}
+
+.skill-track-switch {
+  display: inline-flex;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(59,130,246,0.25);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.skill-track-btn {
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.skill-track-btn.active {
+  color: #fff;
+  background: linear-gradient(120deg, var(--blue-1), var(--indigo));
+}
+
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.spotlight-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(59,130,246,0.22);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.spotlight-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.spotlight-top h3 {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.spotlight-top span {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--blue-1);
+}
+
+.spotlight-meter {
+  margin: 10px 0 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.24);
+  overflow: hidden;
+}
+
+.spotlight-meter div {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue-1), var(--cyan));
+}
+
+.spotlight-card p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.skill-inventory {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card-bg);
+  padding: 12px;
+}
+
+.skill-inventory summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  color: var(--blue-1);
+  margin-bottom: 12px;
+}
+
 .skills-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 .skill-group {
   background: var(--card-bg); border: 1px solid var(--line);
@@ -539,23 +653,61 @@ img { display: block; max-width: 100%; }
   color: var(--violet);
 }
 
-.achievement-strip {
-  margin-top: 16px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.achievement-block {
+  margin-top: 18px;
 }
 
-.achievement-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 700;
+.achievement-title {
+  margin: 0 0 10px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--blue-1);
+  letter-spacing: 0.03em;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.achievement-card {
+  background: linear-gradient(165deg, rgba(191,219,254,0.45), rgba(224,242,254,0.35));
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.achievement-role {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 800;
   color: #1d4ed8;
-  background: rgba(191,219,254,0.5);
-  border: 1px solid rgba(59,130,246,0.22);
+}
+
+.achievement-event {
+  margin: 4px 0 0;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.achievement-org {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.achievement-year {
+  display: inline-flex;
+  margin-top: 8px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--blue-1);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(59,130,246,0.25);
 }
 
 /* ── CONTACT ── */
