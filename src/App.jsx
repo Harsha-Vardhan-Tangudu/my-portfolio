@@ -217,18 +217,26 @@ const experience = [
 const publications = [
   {
     title: "Implementation and Impact of Sustainable Agriculture and Water Management Solutions in Sadivayal Village, Tamil Nadu",
+    venue: "ICSRF 2025 / Amrita",
+    year: "2025",
     url: "https://www.amrita.edu/publication/implementation-and-impact-of-sustainable-agriculture-and-water-management-solutions-in-sadivayal-village-tamil-nadu/",
   },
   {
     title: "AasivU: A Framework for Detecting Violence in College Environment using Computer Vision Techniques",
+    venue: "I-SMAC 2024 (IEEE)",
+    year: "2024",
     url: "https://ieeexplore.ieee.org/document/10714723/",
   },
   {
     title: "A Comparative Analysis of SDN Controller Placement Problem: IoT-Specific Tactics and Generalized Solutions",
+    venue: "RAIT 2025 (IEEE)",
+    year: "2025",
     url: "https://ieeexplore.ieee.org/document/11089072/",
   },
   {
     title: "Sustainable Solutions for Livelihood Enhancement in Sadivayal Village",
+    venue: "IEEE GHTC 2024",
+    year: "2024",
     url: "https://ieeexplore.ieee.org/document/10771511/",
   },
 ]
@@ -518,8 +526,12 @@ function App() {
               {publications.map((pub) => (
                 <article key={pub.title} className="publication-item">
                   <p>{pub.title}</p>
+                  <div className="publication-meta">
+                    <span>{pub.venue}</span>
+                    <span>{pub.year}</span>
+                  </div>
                   {pub.url ? (
-                    <a href={pub.url} target="_blank" rel="noreferrer">Read Paper</a>
+                    <a href={pub.url} target="_blank" rel="noreferrer">View Publication</a>
                   ) : (
                     <span>Link available on request</span>
                   )}

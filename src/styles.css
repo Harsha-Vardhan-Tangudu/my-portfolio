@@ -438,6 +438,24 @@ a {
   line-height: 1.6;
 }
 
+.publication-meta {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.publication-meta span {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8f4d26;
+  background: rgba(225, 122, 63, 0.08);
+}
+
 .publication-item a,
 .publication-item span {
   display: inline-flex;
