@@ -43,6 +43,7 @@ const skillSpotlight = {
       name: "C++ Backend Engineering",
       level: 90,
       note: "Production work in MRS and CIT modules at Amadeus.",
+      active: true,
     },
     {
       name: "Angular Frontend Development",
@@ -50,9 +51,10 @@ const skillSpotlight = {
       note: "Feature delivery, bug fixes, and component upgrades in CIT.",
     },
     {
-      name: "Spring Boot & Java",
+      name: "Java Backend Engineering",
       level: 84,
-      note: "Built TPS logic modules and backend service integrations.",
+      note: "Spring Boot services, TPS logic modules, and backend integrations at Amadeus.",
+      active: true,
     },
     {
       name: "SQL + Monitoring",
@@ -522,10 +524,13 @@ function App() {
 
             <div className="spotlight-grid">
               {spotlightSkills.map((item) => (
-                <article key={item.name} className="spotlight-card">
+                <article key={item.name} className={`spotlight-card${item.active ? " spotlight-card--active" : ""}`}>
                   <div className="spotlight-top">
                     <h3>{item.name}</h3>
-                    <span>{item.level}%</span>
+                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                      {item.active && <span className="spotlight-active-badge">Active</span>}
+                      <span>{item.level}%</span>
+                    </div>
                   </div>
                   <div className="spotlight-meter" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={item.level}>
                     <div style={{ width: `${item.level}%` }} />
