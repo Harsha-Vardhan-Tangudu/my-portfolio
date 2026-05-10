@@ -120,21 +120,8 @@ const certificates = [
   "DevOps Capstone Project — IBM, May 2025 (Credential ID: JBRTCSQV1APO)",
   "Presentation Certificate — I-SMAC Conference, 2024",
   "Participant — Aviskar Project Expo, 2023 & 2025",
-]
-
-const achievements = [
-  {
-    title: "Head, CSE",
-    event: "Anokha Tech Fest",
-    org: "Amrita Vishwa Vidyapeetham, Coimbatore",
-    year: "2024",
-  },
-  {
-    title: "Cultural Head",
-    event: "Gokulashtami Event",
-    org: "Amrita Vishwa Vidyapeetham, Coimbatore",
-    year: "2023 - 2024",
-  },
+  "Head, CSE — Anokha Tech Fest, Amrita Vishwa Vidyapeetham, Coimbatore, 2024",
+  "Cultural Head — Gokulashtami Event, Amrita Vishwa Vidyapeetham, Coimbatore, 2023 - 2024",
 ]
 
 const projectFilters = ["All", "Machine Learning", "Python", "IoT", "Cybersecurity", "Web"]
@@ -525,19 +512,6 @@ function App() {
                 <p>{c}</p>
               </article>
             ))}
-          </div>
-          <div className="achievement-block">
-            <h3 className="achievement-title">Key Achievements</h3>
-            <div className="achievement-grid">
-              {achievements.map((item) => (
-                <article key={item.title + item.year} className="achievement-card">
-                  <p className="achievement-role">{item.title}</p>
-                  <p className="achievement-event">{item.event}</p>
-                  <p className="achievement-org">{item.org}</p>
-                  <span className="achievement-year">{item.year}</span>
-                </article>
-              ))}
-            </div>
           </div>
         </RevealSection>
 
