@@ -140,7 +140,7 @@ const publications = [
 const contactCards = [
   { icon: "\u2709\ufe0f", platform: "Email", handle: "harshavardhantangudu1507@gmail.com", description: "Best way to reach me \u2014 I reply within 24 hours.", href: "mailto:harshavardhantangudu1507@gmail.com", cta: "Send a message", color: "#c84b31" },
   { icon: "\ud83d\udcbc", platform: "LinkedIn", handle: "tangudu-harsha-vardhan-2714971aa", description: "Connect professionally \u2014 500+ connections and open to SDE collaboration.", href: "https://www.linkedin.com/in/tangudu-harsha-vardhan-2714971aa/", cta: "Connect on LinkedIn", color: "#0a66c2" },
-  { icon: "\ud83d\udc19", platform: "GitHub", handle: "Harsha-Vardhan-Tangudu", description: "Browse 21+ projects across ML, IoT, backend, and more.", href: "https://github.com/Harsha-Vardhan-Tangudu", cta: "View repositories", color: "#1b1f23" },
+  { icon: "\ud83d\udc19", platform: "GitHub", handle: "Harsha-Vardhan-Tangudu", description: "Browse 21+ projects across ML, IoT, backend, and more.", href: "https://github.com/Harsha-Vardhan-Tangudu", cta: "View repositories", color: "#7c3aed" },
   { icon: "\ud83d\udd2c", platform: "ResearchGate", handle: "Research Publications", description: "4 peer-reviewed papers on CV, IoT, and cybersecurity.", href: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ", cta: "Read my research", color: "#40ba8f" },
   { icon: "\ud83d\udcde", platform: "Phone", handle: "+91 9110522381", description: "For quick chats, calls, or WhatsApp messages.", href: "tel:+919110522381", cta: "Call me", color: "#8b5cf6" },
 ]
