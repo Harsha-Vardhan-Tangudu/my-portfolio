@@ -1,10 +1,13 @@
-﻿const projects = [
+import { useMemo, useState } from "react"
+
+const projects = [
   {
     title: "my-portfolio",
     description:
       "Personal portfolio website built with React and Vite to present profile, experience, skills, projects, publications, and contact details in a modern responsive layout.",
     tech: ["JavaScript", "React", "Vite"],
     github: "https://github.com/Harsha-Vardhan-Tangudu/my-portfolio",
+    demo: "https://my-portfolio-ruddy-nine-29.vercel.app",
   },
   {
     title: "Phishing Detection Using Evolutionary Algorithms",
@@ -180,34 +183,86 @@ const experience = [
 ]
 
 const publications = [
-  "Sustainable Solutions for Livelihood Enhancement in Sadivayal Village — IEEE GHTC 2024",
-  "A Framework for Detecting Violence in College Environment Using Computer Vision Techniques — I-SMAC 2024",
-  "A Comparative Analysis of SDN Controller Placement Problem: IoT-Specific Tactics and Generalized Solutions — RAIT 2025",
+  "Sustainable Solutions for Livelihood Enhancement in Sadivayal Village - IEEE GHTC 2024",
+  "A Framework for Detecting Violence in College Environment Using Computer Vision Techniques - I-SMAC 2024",
+  "A Comparative Analysis of SDN Controller Placement Problem: IoT-Specific Tactics and Generalized Solutions - RAIT 2025",
 ]
 
 const memberships = [
-  "IoT Team Lead, Intel IoT Club — Amrita Vishwa Vidyapeetham, 2023",
-  "Hostel Committee Head, CSE Department — Amrita Vishwa Vidyapeetham, 2023",
-  "Public Relations Head, IETE Chapter — Amrita Vishwa Vidyapeetham, 2024",
-  "Technical Core Member, Elite Club — Amrita Vishwa Vidyapeetham, 2024",
-  "Placement Coordinator, CSE Department — Amrita Vishwa Vidyapeetham, 2024",
+  "IoT Team Lead, Intel IoT Club - Amrita Vishwa Vidyapeetham, 2023",
+  "Hostel Committee Head, CSE Department - Amrita Vishwa Vidyapeetham, 2023",
+  "Public Relations Head, IETE Chapter - Amrita Vishwa Vidyapeetham, 2024",
+  "Technical Core Member, Elite Club - Amrita Vishwa Vidyapeetham, 2024",
+  "Placement Coordinator, CSE Department - Amrita Vishwa Vidyapeetham, 2024",
 ]
 
 const certificates = [
-  "Supervised Machine Learning: Regression and Classification — Coursera, 2023",
-  "Head of CSE Department, Anokha Tech Fest 2024 — Amrita Vishwa Vidyapeetham",
-  "Central Coordinator, Event Management for Gokulashtami 2023 & 2024 — Amrita Vishwa Vidyapeetham",
-  "Participant, Aviskar Project Expo 2023 & 2025 — Amrita Vishwa Vidyapeetham",
-  "Presentation Certificate — I-SMAC Conference",
+  "Supervised Machine Learning: Regression and Classification - Coursera, 2023",
+  "Head of CSE Department, Anokha Tech Fest 2024 - Amrita Vishwa Vidyapeetham",
+  "Central Coordinator, Event Management for Gokulashtami 2023 and 2024 - Amrita Vishwa Vidyapeetham",
+  "Participant, Aviskar Project Expo 2023 and 2025 - Amrita Vishwa Vidyapeetham",
+  "Presentation Certificate - I-SMAC Conference",
 ]
 
-function SectionTitle({ children }) {
-  return <h2 className="section-title">{children}</h2>
+const projectFilters = ["All", "Machine Learning", "Python", "IoT", "Cybersecurity", "Web"]
+
+function inferCategory(project) {
+  const text = `${project.title} ${project.description} ${project.tech.join(" ")}`.toLowerCase()
+  if (text.includes("machine learning") || text.includes("computer vision") || text.includes("anomaly")) {
+    return "Machine Learning"
+  }
+  if (text.includes("cyber") || text.includes("intrusion") || text.includes("phishing")) {
+    return "Cybersecurity"
+  }
+  if (text.includes("iot") || text.includes("sensor") || text.includes("embedded")) {
+    return "IoT"
+  }
+  if (text.includes("react") || text.includes("html") || text.includes("ui") || text.includes("portfolio")) {
+    return "Web"
+  }
+  if (text.includes("python")) {
+    return "Python"
+  }
+  return "Python"
+}
+
+function SectionTitle({ children, hint }) {
+  return (
+    <div className="section-title-wrap">
+      <h2 className="section-title">{children}</h2>
+      {hint ? <p className="section-hint">{hint}</p> : null}
+    </div>
+  )
 }
 
 function App() {
+  const [activeFilter, setActiveFilter] = useState("All")
+  const [searchQuery, setSearchQuery] = useState("")
+
+  const taggedProjects = useMemo(
+    () => projects.map((project) => ({ ...project, category: inferCategory(project) })),
+    [],
+  )
+
+  const filteredProjects = useMemo(() => {
+    return taggedProjects.filter((project) => {
+      const matchesFilter = activeFilter === "All" || project.category === activeFilter
+      const haystack = `${project.title} ${project.description} ${project.tech.join(" ")}`.toLowerCase()
+      const matchesSearch = haystack.includes(searchQuery.trim().toLowerCase())
+      return matchesFilter && matchesSearch
+    })
+  }, [activeFilter, searchQuery, taggedProjects])
+
+  const stats = [
+    { label: "Projects", value: taggedProjects.length },
+    { label: "Publications", value: publications.length },
+    { label: "Certificates", value: certificates.length },
+    { label: "Leadership Roles", value: memberships.length },
+  ]
+
   return (
     <div className="app">
+      <div className="bg-grid" aria-hidden="true" />
       <header className="navbar">
         <div className="brand">Harsha Vardhan</div>
         <nav>
@@ -227,13 +282,20 @@ function App() {
                 <p className="eyebrow">Software Development Engineer</p>
                 <h1>Tangudu Harsha Vardhan</h1>
                 <p className="hero-text">
-                  Enthusiastic software engineer with a solid Python background. Passionate about
-                  innovative problem-solving and continuous learning. Eager to bring fresh perspectives
-                  and drive progress.
+                  I build practical products across ML, backend systems, and interactive web
+                  experiences. I enjoy taking ideas from rough concept to reliable implementation.
                 </p>
                 <div className="hero-actions">
-                  <a className="btn btn-primary" href="#projects">View Projects</a>
-                  <a className="btn btn-secondary" href="#contact">Contact Me</a>
+                  <a className="btn btn-primary" href="#projects">Explore My Work</a>
+                  <a className="btn btn-secondary" href="#contact">Book a Conversation</a>
+                </div>
+                <div className="stats-grid">
+                  {stats.map((item) => (
+                    <div key={item.label} className="stat-card">
+                      <p className="stat-value">{item.value}+</p>
+                      <p className="stat-label">{item.label}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="hero-photo-wrap">
@@ -244,25 +306,28 @@ function App() {
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
+                <div className="hero-note">Open to SDE opportunities</div>
               </div>
             </div>
           </div>
         </section>
 
         <section id="about" className="section">
-          <SectionTitle>About Me</SectionTitle>
+          <SectionTitle hint="My focus is blending engineering depth with product thinking.">
+            About Me
+          </SectionTitle>
           <p className="section-text">
-            Enthusiastic software engineer with a solid Python background, passionate about
-            innovative problem-solving and continuous learning. Eager to bring fresh perspectives
-            and drive progress. Seeking exciting job opportunities to contribute and grow.
+            Enthusiastic software engineer with a strong Python and systems background. Passionate
+            about innovative problem-solving, clean implementation, and continuous learning. I love
+            building tools that are measurable, maintainable, and valuable in real-world settings.
           </p>
         </section>
 
         <section id="experience" className="section">
-          <SectionTitle>Experience</SectionTitle>
+          <SectionTitle hint="Hands-on product and research execution.">Experience</SectionTitle>
           <div className="experience-list">
             {experience.map((job) => (
-              <div key={job.role + job.period} className="card experience-card">
+              <article key={job.role + job.period} className="card experience-card">
                 <div className="exp-header">
                   <div>
                     <h3>{job.role}</h3>
@@ -271,17 +336,17 @@ function App() {
                   <span className="badge">{job.period}</span>
                 </div>
                 <ul className="exp-points">
-                  {job.points.map((pt, i) => (
-                    <li key={i}>{pt}</li>
+                  {job.points.map((pt) => (
+                    <li key={pt}>{pt}</li>
                   ))}
                 </ul>
-              </div>
+              </article>
             ))}
           </div>
         </section>
 
         <section id="skills" className="section">
-          <SectionTitle>Skills</SectionTitle>
+          <SectionTitle hint="Tooling I use regularly to ship and iterate.">Skills</SectionTitle>
           <div className="skills-grid">
             {Object.entries(skills).map(([group, items]) => (
               <div key={group} className="card">
@@ -297,11 +362,40 @@ function App() {
         </section>
 
         <section id="projects" className="section">
-          <SectionTitle>Featured Projects</SectionTitle>
+          <SectionTitle hint="Search and filter across all repositories.">Project Explorer</SectionTitle>
+          <div className="project-controls card">
+            <label className="search-wrap" htmlFor="project-search">
+              <span>Search projects</span>
+              <input
+                id="project-search"
+                type="text"
+                placeholder="Try: IoT, ML, Python, monitoring"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+              />
+            </label>
+            <div className="filter-row" role="tablist" aria-label="Project category filter">
+              {projectFilters.map((filterName) => (
+                <button
+                  key={filterName}
+                  type="button"
+                  className={`filter-chip ${activeFilter === filterName ? "active" : ""}`}
+                  onClick={() => setActiveFilter(filterName)}
+                >
+                  {filterName}
+                </button>
+              ))}
+            </div>
+            <p className="result-count">Showing {filteredProjects.length} projects</p>
+          </div>
+
           <div className="projects-grid">
-            {projects.map((project) => (
+            {filteredProjects.map((project) => (
               <article key={project.title} className="card project-card">
-                <h3>{project.title}</h3>
+                <div className="project-top">
+                  <h3>{project.title}</h3>
+                  <span className="badge badge-soft">{project.category}</span>
+                </div>
                 <p>{project.description}</p>
                 <div className="badge-list">
                   {project.tech.map((item) => (
@@ -309,7 +403,10 @@ function App() {
                   ))}
                 </div>
                 <div className="project-links">
-                  <a href={project.github} target="_blank" rel="noreferrer">GitHub</a>
+                  <a href={project.github} target="_blank" rel="noreferrer">View Source</a>
+                  {project.demo ? (
+                    <a href={project.demo} target="_blank" rel="noreferrer">Live Demo</a>
+                  ) : null}
                 </div>
               </article>
             ))}
@@ -317,7 +414,9 @@ function App() {
         </section>
 
         <section className="section">
-          <SectionTitle>Education</SectionTitle>
+          <SectionTitle hint="Consistent academic performance and technical foundations.">
+            Education
+          </SectionTitle>
           <div className="education-list">
             <div className="card">
               <div className="edu-header">
@@ -352,56 +451,58 @@ function App() {
           </div>
         </section>
 
-        <section className="section">
-          <SectionTitle>Publications</SectionTitle>
+        <section className="section dual-grid">
           <div className="card">
+            <SectionTitle hint="Peer-reviewed and conference-backed work.">Publications</SectionTitle>
             <ul className="pub-list">
-              {publications.map((pub, i) => (
-                <li key={i}>{pub}</li>
+              {publications.map((pub) => (
+                <li key={pub}>{pub}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="card">
+            <SectionTitle hint="Roles where I owned coordination and execution.">Memberships</SectionTitle>
+            <ul className="pub-list">
+              {memberships.map((membership) => (
+                <li key={membership}>{membership}</li>
               ))}
             </ul>
           </div>
         </section>
 
         <section className="section">
-          <SectionTitle>Memberships</SectionTitle>
           <div className="card">
+            <SectionTitle hint="Continuous learning and event leadership.">Certificates</SectionTitle>
             <ul className="pub-list">
-              {memberships.map((m, i) => (
-                <li key={i}>{m}</li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="section">
-          <SectionTitle>Certificates</SectionTitle>
-          <div className="card">
-            <ul className="pub-list">
-              {certificates.map((c, i) => (
-                <li key={i}>{c}</li>
+              {certificates.map((certificate) => (
+                <li key={certificate}>{certificate}</li>
               ))}
             </ul>
           </div>
         </section>
 
         <section id="contact" className="section">
-          <SectionTitle>Contact</SectionTitle>
-          <div className="card">
-            <p>Open to collaboration and software development opportunities. Feel free to connect.</p>
+          <div className="card contact-card">
+            <SectionTitle hint="Open to internships, full-time roles, and collaboration.">
+              Contact
+            </SectionTitle>
             <ul className="contact-list">
-              <li>Email: <a href="mailto:harshavardhantangudu1507@gmail.com">harshavardhantangudu1507@gmail.com</a></li>
-              <li>GitHub: <a href="https://github.com/Harsha-Vardhan-Tangudu" target="_blank" rel="noreferrer">github.com/Harsha-Vardhan-Tangudu</a></li>
-              <li>LinkedIn: <a href="https://linkedin.com/in/Harsha" target="_blank" rel="noreferrer">linkedin.com/in/Harsha</a></li>
+              <li>
+                Email: <a href="mailto:harshavardhantangudu1507@gmail.com">harshavardhantangudu1507@gmail.com</a>
+              </li>
+              <li>
+                GitHub: <a href="https://github.com/Harsha-Vardhan-Tangudu" target="_blank" rel="noreferrer">github.com/Harsha-Vardhan-Tangudu</a>
+              </li>
+              <li>
+                LinkedIn: <a href="https://linkedin.com/in/Harsha" target="_blank" rel="noreferrer">linkedin.com/in/Harsha</a>
+              </li>
               <li>Phone: +91 9110522381</li>
             </ul>
           </div>
         </section>
       </main>
 
-      <footer className="footer">
-        2026 Tangudu Harsha Vardhan. Built with care and curiosity.
-      </footer>
+      <footer className="footer">2026 Tangudu Harsha Vardhan. Built with intent and curiosity.</footer>
     </div>
   )
 }
