@@ -266,12 +266,12 @@ function RevealSection({ children, className = "", id }) {
 function App() {
   const [activeFilter, setActiveFilter] = useState("All")
   const [searchQuery, setSearchQuery] = useState("")
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
   const [expandedProject, setExpandedProject] = useState(null)
   const [skillTrack, setSkillTrack] = useState("Experienced")
-  const navIds = ["about", "experience", "skills", "projects", "contact"]
+  const navIds = ["about", "dashboard", "experience", "skills", "projects", "contact"]
   const activeSection = useActiveSection(navIds)
-  const typed = useTypewriter(["Software Engineer", "ML Enthusiast", "IoT Builder", "Problem Solver"])
+  const typed = useTypewriter(["Software Engineer", "Backend + Angular Developer", "Cloud & DevOps Learner", "Problem Solver"])
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light")
@@ -289,6 +289,37 @@ function App() {
   }, [activeFilter, searchQuery, taggedProjects])
 
   const spotlightSkills = useMemo(() => skillSpotlight[skillTrack] ?? [], [skillTrack])
+
+  const projectCategoryMix = useMemo(() => {
+    const counts = taggedProjects.reduce((acc, project) => {
+      acc[project.category] = (acc[project.category] ?? 0) + 1
+      return acc
+    }, {})
+
+    return Object.entries(counts)
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5)
+  }, [taggedProjects])
+
+  const experienceMetrics = useMemo(() => {
+    const backendAndWebProjects = taggedProjects.filter((project) => {
+      const text = `${project.title} ${project.description} ${project.tech.join(" ")}`.toLowerCase()
+      return text.includes("web") || text.includes("react") || text.includes("spring") || text.includes("backend") || text.includes("angular")
+    }).length
+
+    const aiIotProjects = taggedProjects.filter((project) => {
+      const text = `${project.title} ${project.description} ${project.tech.join(" ")}`.toLowerCase()
+      return text.includes("machine learning") || text.includes("computer vision") || text.includes("iot")
+    }).length
+
+    return [
+      { label: "Primary Stack", value: "Backend + Angular", note: "Core production focus" },
+      { label: "Professional Role", value: "Amadeus SDE-1", note: "CIT + MRS ownership" },
+      { label: "Web/Backend Projects", value: `${backendAndWebProjects}+`, note: "Execution-driven builds" },
+      { label: "AI/ML/IoT Projects", value: `${aiIotProjects}+`, note: "Growing secondary depth" },
+    ]
+  }, [taggedProjects])
 
   const stats = [
     { label: "Projects", value: taggedProjects.length, icon: "\ud83d\ude80" },
@@ -334,8 +365,8 @@ function App() {
                 <span className="cursor" aria-hidden="true">|</span>
               </p>
               <p className="hero-bio">
-                I build practical products across ML, backend systems, and interactive web
-                experiences — from rough concept to reliable implementation.
+                I focus on backend systems and Angular frontend delivery, with practical cloud
+                and devops capabilities plus applied AI/ML/IoT depth when product needs demand it.
               </p>
               <div className="hero-actions">
                 <a className="btn btn-primary" href="#projects">
@@ -380,9 +411,58 @@ function App() {
               <p>I work across ML, IoT, backend systems, and frontend engineering to build solutions that are <strong>measurable</strong>, <strong>maintainable</strong>, and <strong>impactful</strong>.</p>
             </div>
             <div className="about-tags">
-              {["Backend Systems", "Machine Learning", "IoT", "ReactJS", "Research", "Spring Boot"].map((tag) => (
+              {["Backend Systems", "Angular", "Cloud/DevOps", "Machine Learning", "IoT", "Spring Boot"].map((tag) => (
                 <span key={tag} className="about-tag">{tag}</span>
               ))}
+            </div>
+          </div>
+        </RevealSection>
+
+        <RevealSection id="dashboard" className="section dashboard-section">
+          <div className="section-label">Dashboard</div>
+          <h2 className="section-heading">Experience & Skills Dashboard</h2>
+
+          <div className="dashboard-metrics-grid">
+            {experienceMetrics.map((metric) => (
+              <article key={metric.label} className="dashboard-metric-card">
+                <p className="dashboard-metric-label">{metric.label}</p>
+                <p className="dashboard-metric-value">{metric.value}</p>
+                <p className="dashboard-metric-note">{metric.note}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="dashboard-deep-grid">
+            <div className="dashboard-card">
+              <h3>Project Category Mix</h3>
+              <div className="dashboard-bars">
+                {projectCategoryMix.map((item) => (
+                  <div key={item.name} className="dash-bar-row">
+                    <div className="dash-bar-head">
+                      <span>{item.name}</span>
+                      <span>{item.count}</span>
+                    </div>
+                    <div className="dash-bar-track">
+                      <div style={{ width: `${(item.count / taggedProjects.length) * 100}%` }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="dashboard-card">
+              <h3>Current Focus Alignment</h3>
+              <div className="focus-tags">
+                <span className="focus-tag primary">Backend Engineering</span>
+                <span className="focus-tag primary">Angular Frontend</span>
+                <span className="focus-tag primary">Cloud & DevOps</span>
+                <span className="focus-tag secondary">AI/ML</span>
+                <span className="focus-tag secondary">IoT</span>
+              </div>
+              <p>
+                Designed to spotlight proven engineering execution first, while still showing
+                strong momentum in booming AI/ML and IoT capabilities.
+              </p>
             </div>
           </div>
         </RevealSection>
