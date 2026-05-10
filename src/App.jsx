@@ -625,9 +625,9 @@ function App() {
           <h2 className="section-heading">Academic Background</h2>
           <div className="edu-cards">
             {[
-              { degree: "B.Tech in Computer Science", school: "Amrita Vishwa Vidyapeetham, Coimbatore", period: "2021 \u2013 2025", score: "CGPA 8.12" },
-              { degree: "BIEAP \u2013 MPC", school: "Sri Chaitanya Junior College, Visakhapatnam", period: "2019 \u2013 2021", score: "949 / 1000" },
-              { degree: "SSC", school: "Sri Chaitanya E.M School, Bobbili", period: "2018 \u2013 2019", score: "CGPA 10.0 \ud83c\udfc6" },
+              { degree: "B.Tech in Computer Science", school: "Amrita Vishwa Vidyapeetham, Coimbatore", period: "2021 \u2013 2025", score: "CGPA 8.12", distinction: true },
+              { degree: "BIEAP \u2013 MPC (Intermediate)", school: "Sri Chaitanya Junior College, Visakhapatnam", period: "2019 \u2013 2021", distinction: true },
+              { degree: "SSC (10th)", school: "Sri Chaitanya E.M School, Bobbili", period: "2018 \u2013 2019", score: "CGPA 10.0 \ud83c\udfc6", distinction: true },
             ].map((edu) => (
               <div key={edu.degree} className="edu-card">
                 <div className="edu-card-top">
@@ -635,7 +635,10 @@ function App() {
                   <span className="edu-period">{edu.period}</span>
                 </div>
                 <p className="edu-school">{edu.school}</p>
-                <span className="edu-score">{edu.score}</span>
+                <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+                  {edu.score && <span className="edu-score">{edu.score}</span>}
+                  {edu.distinction && <span className="edu-distinction">Distinction</span>}
+                </div>
               </div>
             ))}
           </div>
