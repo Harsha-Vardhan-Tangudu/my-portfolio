@@ -3,19 +3,19 @@
    ============================================= */
 
 :root {
-  /* Violet / Neon palette */
+  /* Deep violet + emerald accent palette */
   --blue-1: #7c3aed;
   --blue-2: #8b5cf6;
   --blue-3: #a78bfa;
   --cyan:   #22d3ee;
-  --indigo: #db2777;
-  --violet: #f472b6;
+  --indigo: #059669;
+  --violet: #34d399;
 
   /* Backgrounds */
-  --bg:      #f8f7ff;
+  --bg:      #f5f4fe;
   --paper:   #ffffff;
   --card-bg: rgba(255,255,255,0.90);
-  --nav-bg:  rgba(248,247,255,0.88);
+  --nav-bg:  rgba(245,244,254,0.88);
 
   /* Text */
   --ink:   #110f1e;
@@ -34,23 +34,23 @@
 }
 
 [data-theme="dark"] {
-  --bg:      #08080f;
-  --paper:   #0d0d1c;
-  --card-bg: rgba(15,15,28,0.97);
-  --nav-bg:  rgba(8,8,15,0.93);
-  --ink:     #f2f0ff;
-  --muted:   #9b9ab8;
-  --line:    #22213e;
-  --shadow-sm: 0 2px 10px rgba(0,0,0,0.5);
-  --shadow-md: 0 8px 32px rgba(0,0,0,0.6);
-  --shadow-lg: 0 20px 60px rgba(124,58,237,0.40);
+  --bg:      #0f1117;
+  --paper:   #161820;
+  --card-bg: rgba(20,22,34,0.97);
+  --nav-bg:  rgba(15,17,23,0.94);
+  --ink:     #edeaff;
+  --muted:   #9896b8;
+  --line:    #252545;
+  --shadow-sm: 0 2px 10px rgba(0,0,0,0.45);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.55);
+  --shadow-lg: 0 20px 60px rgba(124,58,237,0.38);
   /* neon accent overrides for dark */
   --blue-1: #a78bfa;
   --blue-2: #c4b5fd;
   --blue-3: #ddd6fe;
   --cyan:   #67e8f9;
-  --indigo: #f472b6;
-  --violet: #fbb6f0;
+  --indigo: #34d399;
+  --violet: #6ee7b7;
 }
 
 /* -- RESET -- */
@@ -183,7 +183,7 @@ img { display: block; max-width: 100%; }
 .hero-name {
   font-size: clamp(2.6rem, 5.5vw, 4.8rem);
   font-weight: 900; line-height: 0.98; letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #7c3aed 0%, #db2777 50%, #22d3ee 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #22d3ee 55%, #059669 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -329,7 +329,7 @@ img { display: block; max-width: 100%; }
 }
 
 .dashboard-metric-card {
-  background: linear-gradient(145deg, rgba(124,58,237,0.18), rgba(219,39,119,0.10));
+  background: linear-gradient(145deg, rgba(124,58,237,0.18), rgba(5,150,105,0.10));
   border: 1px solid rgba(139,92,246,0.30);
   border-radius: 14px;
   padding: 14px;
@@ -734,7 +734,7 @@ img { display: block; max-width: 100%; }
 }
 
 .membership-card {
-  background: linear-gradient(165deg, rgba(124,58,237,0.14), rgba(219,39,119,0.07));
+  background: linear-gradient(165deg, rgba(124,58,237,0.14), rgba(5,150,105,0.07));
   border: 1px solid rgba(139,92,246,0.22);
   border-radius: 16px;
   padding: 18px;
