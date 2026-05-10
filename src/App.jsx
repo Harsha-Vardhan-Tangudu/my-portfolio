@@ -268,17 +268,20 @@ function App() {
               </p>
               <p className="hero-bio">
                 I build practical products across ML, backend systems, and interactive web
-                experiences \u2014 from rough concept to reliable implementation.
+                experiences — from rough concept to reliable implementation.
               </p>
               <div className="hero-actions">
                 <a className="btn btn-primary" href="#projects">
-                  Explore Work <span>\u2192</span>
+                  Explore Work <span>→</span>
                 </a>
                 <a className="btn btn-secondary" href="#contact">Get in Touch</a>
               </div>
             </div>
             <div className="hero-right">
               <div className="photo-frame">
+                <div className="photo-glow" />
+                <div className="photo-ring-outer" />
+                <div className="photo-ring-inner" />
                 <img
                   className="hero-photo"
                   src="https://github.com/Harsha-Vardhan-Tangudu.png"
@@ -286,7 +289,7 @@ function App() {
                   loading="eager"
                   referrerPolicy="no-referrer"
                 />
-                <div className="photo-ring" />
+                <div className="photo-badge">Open to SDE roles ✦</div>
               </div>
               <div className="stats-cluster">
                 {stats.map((s) => (
@@ -307,7 +310,7 @@ function App() {
           <div className="about-grid">
             <div className="about-text">
               <p>Enthusiastic software engineer with a strong Python and systems background. Passionate about innovative problem-solving, clean implementation, and continuous learning.</p>
-              <p>I love building tools that are <strong>measurable</strong>, <strong>maintainable</strong>, and <strong>valuable</strong> \u2014 whether it is a Grafana dashboard at Amadeus or a CV pipeline for campus safety.</p>
+              <p>I love building tools that are <strong>measurable</strong>, <strong>maintainable</strong>, and <strong>valuable</strong> — whether it is a Grafana dashboard at Amadeus or a CV pipeline for campus safety.</p>
             </div>
             <div className="about-tags">
               {["Backend Systems", "Machine Learning", "IoT", "ReactJS", "Research", "Spring Boot"].map((tag) => (
@@ -331,7 +334,7 @@ function App() {
                   <div className="timeline-header">
                     <div>
                       <h3 className="timeline-role">{job.role}</h3>
-                      <p className="timeline-company">{job.company} \u00b7 {job.location}</p>
+                      <p className="timeline-company">{job.company} · {job.location}</p>
                     </div>
                     <div className="timeline-meta">
                       <span className="timeline-badge" style={{ background: job.color + "18", color: job.color, borderColor: job.color + "44" }}>{job.period}</span>
@@ -371,15 +374,15 @@ function App() {
           <h2 className="section-heading">What I Have Built</h2>
           <div className="project-controls">
             <div className="search-box">
-              <span className="search-icon">\u2315</span>
+              <span className="search-icon">🔍</span>
               <input
                 type="text"
-                placeholder="Search projects\u2026"
+                placeholder="Search projects…"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
               {searchQuery && (
-                <button className="search-clear" onClick={() => setSearchQuery("")}>\u2715</button>
+                <button className="search-clear" onClick={() => setSearchQuery("")}>✕</button>
               )}
             </div>
             <div className="filter-row">
@@ -415,9 +418,9 @@ function App() {
                         ))}
                       </div>
                       <div className="project-links" onClick={(e) => e.stopPropagation()}>
-                        <a href={project.github} target="_blank" rel="noreferrer" className="plink plink-github">GitHub \u2192</a>
+                        <a href={project.github} target="_blank" rel="noreferrer" className="plink plink-github">GitHub →</a>
                         {project.demo && (
-                          <a href={project.demo} target="_blank" rel="noreferrer" className="plink plink-demo">Live Demo \u2192</a>
+                          <a href={project.demo} target="_blank" rel="noreferrer" className="plink plink-demo">Live Demo →</a>
                         )}
                       </div>
                     </div>
@@ -461,7 +464,7 @@ function App() {
                 </div>
                 <p className="pub-title">{pub.title}</p>
                 <p className="pub-venue">{pub.venue}</p>
-                <span className="pub-cta">Read paper \u2192</span>
+                <span className="pub-cta">Read paper →</span>
               </a>
             ))}
           </div>
@@ -487,7 +490,7 @@ function App() {
             <ul className="cert-list">
               {certificates.map((c) => (
                 <li key={c} className="cert-item">
-                  <span className="cert-check">\u2713</span>{c}
+                  <span className="cert-check">✓</span>{c}
                 </li>
               ))}
             </ul>
@@ -496,9 +499,9 @@ function App() {
 
         <RevealSection id="contact" className="section contact-section">
           <div className="section-label">Contact</div>
-          <h2 className="section-heading">Let us Connect</h2>
+          <h2 className="section-heading">Let's Connect</h2>
           <p className="contact-intro">
-            Whether you have a project idea, a job opportunity, or just want to talk tech \u2014 I am always happy to chat.
+            Whether you have a project idea, a job opportunity, or just want to talk tech — I am always happy to chat.
           </p>
           <div className="contact-grid">
             {contactCards.map((card) => (
@@ -517,7 +520,7 @@ function App() {
                   <p className="contact-handle">{card.handle}</p>
                   <p className="contact-desc">{card.description}</p>
                 </div>
-                <span className="contact-cta">{card.cta} \u2192</span>
+                <span className="contact-cta">{card.cta} →</span>
               </a>
             ))}
           </div>
@@ -525,8 +528,8 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>Built by Harsha Vardhan \u00b7 2026</p>
-        <p className="footer-sub">React + Vite \u00b7 Deployed on Vercel</p>
+        <p>Built by Harsha Vardhan · 2026</p>
+        <p className="footer-sub">React + Vite · Deployed on Vercel</p>
       </footer>
     </div>
   )
