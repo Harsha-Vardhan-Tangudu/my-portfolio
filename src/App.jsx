@@ -152,12 +152,44 @@ const projects = [
 ]
 
 const skills = {
-  Languages: ["Python", "C++", "Java", "HTML", "CSS", "SQL"],
-  Backend: ["Spring Boot", "REST APIs"],
-  Tools: ["VS Code", "IntelliJ IDEA", "PyCharm", "Grafana", "MySQL", "PostgreSQL", "Arduino IDE"],
+  "Computer Skills": [
+    "Python",
+    "C++",
+    "Java",
+    "HTML",
+    "CSS",
+    "SQL",
+    "Spring Boot",
+    "ReactJS",
+    "NodeJS",
+    "TypeScript",
+    "Angular",
+  ],
+  Tools: [
+    "VS Code",
+    "Eclipse",
+    "IntelliJ IDEA",
+    "PyCharm",
+    "Arduino IDE",
+    "Jupyter Notebook",
+    "Grafana",
+    "MySQL",
+    "PostgreSQL",
+  ],
 }
 
 const experience = [
+  {
+    role: "SDE 1",
+    company: "Amadeus Software Labs, Bangalore",
+    period: "Jul 2025 - Present",
+    points: [
+      "Actively involved in C++ backend development for MRS and ReactJS development for CIT frontend, including bug fixes, new features, and component/library upgrades.",
+      "Contributed to CIT version upgrades and feature enhancements, and led the design of copy customization.",
+      "Integrated advertisement slot subscription functionality within the CIT layout design tool with proper permission management.",
+      "Supported IR and PTR backlogs by assisting in issue resolution and backlog management.",
+    ],
+  },
   {
     role: "SDE Intern",
     company: "Amadeus Software Labs, Bangalore",
@@ -183,9 +215,31 @@ const experience = [
 ]
 
 const publications = [
-  "Sustainable Solutions for Livelihood Enhancement in Sadivayal Village - IEEE GHTC 2024",
-  "A Framework for Detecting Violence in College Environment Using Computer Vision Techniques - I-SMAC 2024",
-  "A Comparative Analysis of SDN Controller Placement Problem: IoT-Specific Tactics and Generalized Solutions - RAIT 2025",
+  {
+    title: "Sustainable Solutions for Livelihood Enhancement in Sadivayal Village - IEEE GHTC 2024",
+  },
+  {
+    title: "A Framework for Detecting Violence in College Environment Using Computer Vision Techniques - I-SMAC 2024",
+    url: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ",
+  },
+  {
+    title: "A Comparative Analysis of SDN Controller Placement Problem: IoT-Specific Tactics and Generalized Solutions - RAIT 2025",
+  },
+]
+
+const socialLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/Harsha-Vardhan-Tangudu",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/Harsha",
+  },
+  {
+    label: "Research Paper",
+    href: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ",
+  },
 ]
 
 const memberships = [
@@ -454,11 +508,18 @@ function App() {
         <section className="section dual-grid">
           <div className="card">
             <SectionTitle hint="Peer-reviewed and conference-backed work.">Publications</SectionTitle>
-            <ul className="pub-list">
+            <div className="publication-list">
               {publications.map((pub) => (
-                <li key={pub}>{pub}</li>
+                <article key={pub.title} className="publication-item">
+                  <p>{pub.title}</p>
+                  {pub.url ? (
+                    <a href={pub.url} target="_blank" rel="noreferrer">Read Paper</a>
+                  ) : (
+                    <span>Link available on request</span>
+                  )}
+                </article>
               ))}
-            </ul>
+            </div>
           </div>
           <div className="card">
             <SectionTitle hint="Roles where I owned coordination and execution.">Memberships</SectionTitle>
@@ -486,6 +547,13 @@ function App() {
             <SectionTitle hint="Open to internships, full-time roles, and collaboration.">
               Contact
             </SectionTitle>
+            <div className="social-strip">
+              {socialLinks.map((social) => (
+                <a key={social.label} href={social.href} target="_blank" rel="noreferrer">
+                  {social.label}
+                </a>
+              ))}
+            </div>
             <ul className="contact-list">
               <li>
                 Email: <a href="mailto:harshavardhantangudu1507@gmail.com">harshavardhantangudu1507@gmail.com</a>

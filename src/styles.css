@@ -420,8 +420,59 @@ a {
   line-height: 1.8;
 }
 
+.publication-list {
+  display: grid;
+  gap: 10px;
+}
+
+.publication-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.publication-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.publication-item a,
+.publication-item span {
+  display: inline-flex;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.publication-item a {
+  color: #0d5b58;
+}
+
+.publication-item span {
+  color: #8f4d26;
+}
+
 .contact-card {
   background: linear-gradient(140deg, #fff8ec, #edf6f6);
+}
+
+.social-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.social-strip a {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0d5b58;
 }
 
 .contact-list {
