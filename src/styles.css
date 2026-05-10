@@ -155,6 +155,14 @@ img { display: block; max-width: 100%; }
   font-size: 0.8rem; font-weight: 700; color: var(--cyan);
   text-transform: uppercase; letter-spacing: 0.12em; width: fit-content;
 }
+
+.hero-location {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: -8px;
+}
+
 .eyebrow-pulse {
   width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
   box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
@@ -443,33 +451,112 @@ img { display: block; max-width: 100%; }
 .pub-venue { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
 .pub-cta { font-size: 0.82rem; font-weight: 800; color: var(--blue-1); margin-top: auto; }
 
-/* ── DUAL SECTION ── */
-.dual-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+/* ── MEMBERSHIPS (SEPARATE DESIGN) ── */
+.membership-section .section-heading { margin-bottom: 24px; }
 
-.membership-list { display: flex; flex-direction: column; gap: 10px; }
-.membership-item {
-  background: var(--card-bg); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
-  position: relative; box-shadow: var(--shadow-sm); transition: transform 0.18s, border-color 0.18s;
+.membership-stage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
 }
-.membership-item:hover { transform: translateX(4px); border-color: rgba(59,130,246,0.3); }
-.membership-role { font-size: 0.95rem; font-weight: 800; margin-bottom: 3px; }
-.membership-org { font-size: 0.83rem; color: var(--muted); }
-.membership-year {
-  position: absolute; top: 12px; right: 14px;
-  font-size: 0.74rem; font-weight: 800;
-  background: rgba(59,130,246,0.1); color: var(--blue-1);
-  padding: 2px 8px; border-radius: 999px;
+
+.membership-card {
+  background: linear-gradient(165deg, rgba(59,130,246,0.12), rgba(99,102,241,0.06));
+  border: 1px solid rgba(59,130,246,0.22);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
-.cert-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.cert-item {
-  display: flex; gap: 12px; align-items: flex-start;
-  padding: 12px 14px; border-radius: 12px;
-  background: var(--card-bg); border: 1px solid var(--line);
-  font-size: 0.88rem; color: var(--muted); line-height: 1.5; box-shadow: var(--shadow-sm);
-  transition: border-color 0.18s;
+
+.membership-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(59,130,246,0.4);
 }
-.cert-item:hover { border-color: rgba(59,130,246,0.3); }
-.cert-check { color: #22c55e; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+
+.membership-pill {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.73rem;
+  font-weight: 800;
+  color: var(--blue-1);
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(59,130,246,0.22);
+}
+
+.membership-role {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.membership-org {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ── CERTIFICATES (SEPARATE DESIGN) ── */
+.cert-section .section-heading { margin-bottom: 24px; }
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.cert-card {
+  background: var(--card-bg);
+  border: 1px dashed rgba(99,102,241,0.35);
+  border-radius: 14px;
+  padding: 14px 14px 14px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.18s, transform 0.18s;
+}
+
+.cert-card:hover {
+  border-color: rgba(99,102,241,0.65);
+  transform: translateY(-2px);
+}
+
+.cert-card p {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.cert-index {
+  display: inline-flex;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--violet);
+}
+
+.achievement-strip {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.achievement-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1d4ed8;
+  background: rgba(191,219,254,0.5);
+  border: 1px solid rgba(59,130,246,0.22);
+}
 
 /* ── CONTACT ── */
 .contact-section { text-align: center; }
@@ -516,7 +603,6 @@ img { display: block; max-width: 100%; }
   .hero-bio { text-align: left; }
   .hero-right { order: -1; }
   .about-grid { grid-template-columns: 1fr; }
-  .dual-section { grid-template-columns: 1fr; gap: 48px; }
   .stats-cluster { grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 600px) {

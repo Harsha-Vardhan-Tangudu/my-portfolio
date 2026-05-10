@@ -119,8 +119,11 @@ const certificates = [
   "DevOps Capstone Project — IBM, May 2025 (Credential ID: JBRTCSQV1APO)",
   "Presentation Certificate — I-SMAC Conference, 2024",
   "Participant — Aviskar Project Expo, 2023 & 2025",
-  "Achievement: Head, CSE — Anokha Tech Fest 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
-  "Achievement: Cultural Head — Gokulashtami Event 2023 - 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
+]
+
+const achievements = [
+  "Head, CSE — Anokha Tech Fest 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
+  "Cultural Head — Gokulashtami Event 2023 - 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
 ]
 
 const projectFilters = ["All", "Machine Learning", "Python", "IoT", "Cybersecurity", "Web"]
@@ -488,30 +491,35 @@ function App() {
           </div>
         </RevealSection>
 
-        <RevealSection className="section dual-section">
-          <div className="dual-col">
-            <div className="section-label">Leadership</div>
-            <h2 className="section-heading">Memberships</h2>
-            <div className="membership-list">
-              {memberships.map((m) => (
-                <div key={m.role} className="membership-item">
-                  <div className="membership-role">{m.role}</div>
-                  <div className="membership-org">{m.org}</div>
-                  <span className="membership-year">{m.year}</span>
-                </div>
-              ))}
-            </div>
+        <RevealSection className="section membership-section">
+          <div className="section-label">Leadership</div>
+          <h2 className="section-heading">Memberships</h2>
+          <div className="membership-stage">
+            {memberships.map((m) => (
+              <article key={m.role} className="membership-card">
+                <span className="membership-pill">{m.year}</span>
+                <h3 className="membership-role">{m.role}</h3>
+                <p className="membership-org">{m.org}</p>
+              </article>
+            ))}
           </div>
-          <div className="dual-col">
-            <div className="section-label">Achievements</div>
-            <h2 className="section-heading">Certificates</h2>
-            <ul className="cert-list">
-              {certificates.map((c) => (
-                <li key={c} className="cert-item">
-                  <span className="cert-check">✓</span>{c}
-                </li>
-              ))}
-            </ul>
+        </RevealSection>
+
+        <RevealSection className="section cert-section">
+          <div className="section-label">Credentials</div>
+          <h2 className="section-heading">Certificates</h2>
+          <div className="cert-grid">
+            {certificates.map((c, index) => (
+              <article key={c} className="cert-card">
+                <span className="cert-index">#{String(index + 1).padStart(2, "0")}</span>
+                <p>{c}</p>
+              </article>
+            ))}
+          </div>
+          <div className="achievement-strip">
+            {achievements.map((item) => (
+              <span key={item} className="achievement-badge">{item}</span>
+            ))}
           </div>
         </RevealSection>
 
