@@ -1,38 +1,150 @@
 ﻿const projects = [
   {
-    title: "Phishing Website Detection",
+    title: "my-portfolio",
     description:
-      "Phishing website detection using Evolutionary Algorithms for feature and model selection. Applied Genetic Algorithms for feature optimization and trained an ensemble of models for improved accuracy. Includes a web extension for real-time phishing detection.",
-    tech: ["Machine Learning", "Evolutionary Algorithms", "Python"],
-    github: "https://github.com/Harsha-Vardhan-Tangudu",
+      "Personal portfolio website built with React and Vite to present profile, experience, skills, projects, publications, and contact details in a modern responsive layout.",
+    tech: ["JavaScript", "React", "Vite"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/my-portfolio",
   },
   {
-    title: "Mentor and Me",
+    title: "Phishing Detection Using Evolutionary Algorithms",
     description:
-      "Online learning platform mirroring Udemy and Coursera. Enables users to access and enroll in courses with a focus on UI design, course management, and secure authentication. Integrated payment gateways and feedback systems.",
-    tech: ["HTML", "CSS", "JavaScript", "DSA"],
-    github: "https://github.com/Harsha-Vardhan-Tangudu",
+      "Machine learning project focused on phishing website detection using evolutionary algorithm-based feature selection and model ensembling for stronger classification performance.",
+    tech: ["Jupyter Notebook", "Machine Learning", "Evolutionary Algorithms"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Phishing-Detection-Using-Evolutionary-Algorithm-Based-Feature-Selection-and-Model-Ensembling",
   },
   {
-    title: "Water Meter Analyser",
+    title: "Information Retrieval Using WebAP Dataset",
     description:
-      "Comprehensive system for water meter data analysis, storing and managing user and meter data in a structured database. Real-time monitoring, issue resolution, and user-friendly dashboards for data visualization.",
-    tech: ["DBMS", "SQL"],
-    github: "https://github.com/Harsha-Vardhan-Tangudu",
+      "Information retrieval implementation and experiments on the WebAP dataset, covering search relevance and retrieval quality analysis.",
+    tech: ["Jupyter Notebook", "Information Retrieval"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Information-retrieval-using-WebAP-dataset-",
   },
   {
-    title: "Intrusion Detection System",
+    title: "Database Management System Project",
     description:
-      "IDS leveraging machine learning to detect unauthorized access attempts with high accuracy. Includes model evaluation and selection to improve detection rates, reduce false positives, and real-time alerts with logging.",
-    tech: ["Machine Learning", "Python"],
-    github: "https://github.com/Harsha-Vardhan-Tangudu",
+      "Smart water meter data analysis system designed with DBMS concepts to identify water usage issues and support data-driven resolution.",
+    tech: ["DBMS", "SQL", "Data Analysis"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/DataBase-Management-System-Project",
   },
   {
-    title: "Smart Regulation for Oyster Mushroom Farming",
+    title: "AI-based IoT for Oyster Mushroom Production",
     description:
-      "IoT-based system to optimize mushroom cultivation using sensors to monitor and control environmental factors. Automated adjustments to increase yield and quality by maintaining optimal growing conditions.",
-    tech: ["IoT", "Python", "Sensors"],
-    github: "https://github.com/Harsha-Vardhan-Tangudu",
+      "AI and IoT-driven environment control system for oyster mushroom production in hot areas, targeting better yield through continuous sensing and regulation.",
+    tech: ["IoT", "AI", "Automation"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/AI-based-IoT-for-Environment-Control-for-Oyster-Mushroom-Production-in-Hot-Areas",
+  },
+  {
+    title: "GitHub Profile Repository",
+    description:
+      "Profile README repository used to present developer highlights, activity, and quick links on the GitHub profile page.",
+    tech: ["Markdown", "GitHub"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Harsha-Vardhan-Tangudu",
+  },
+  {
+    title: "LA County Health Services Phishing Case Study",
+    description:
+      "Case-study style security analysis of a healthcare data exposure incident related to phishing, with focus on attack impact and lessons learned.",
+    tech: ["Cybersecurity", "Case Study"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/LA-County-Health-Services-Patient-s-Data-Exposed-in-Phishing-Attack",
+  },
+  {
+    title: "Chandy-Misra-Haas AND Model Algorithm",
+    description:
+      "Distributed systems implementation around the Chandy-Misra-Haas AND model algorithm, demonstrating deadlock-related coordination logic.",
+    tech: ["Distributed Systems", "Algorithms"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Chandy-Misra-Hass-AND-Model-Algorithm_-Distributed-system",
+  },
+  {
+    title: "Anomaly Detection in College Environment",
+    description:
+      "Computer vision pipeline for anomaly and violence-related detection in campus environments, explored through notebook-based experimentation.",
+    tech: ["Jupyter Notebook", "Computer Vision", "Anomaly Detection"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Anomaly-Detection-in-college-environment-Using-Computer-Vision",
+  },
+  {
+    title: "Theory of Computation: PDA and Turing Machine",
+    description:
+      "Theory of computation project modeling a safe submarine battle scenario with Pushdown Automata and Turing Machine design.",
+    tech: ["Theory of Computation", "Automata"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Theory-Of-Computation-Designing-PDA-Turingmachine-Safe-Submarine-Battle",
+  },
+  {
+    title: "Machine Learning Intrusion Detection System",
+    description:
+      "Dataset-driven intrusion detection system using machine learning models to classify malicious activity and improve network security visibility.",
+    tech: ["Jupyter Notebook", "Machine Learning", "Cybersecurity"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/MACHINE-LEARNING-INTRUSION-DETECTION-SYSTEM",
+  },
+  {
+    title: "Computer Networks Server Monitoring System",
+    description:
+      "Python-based server monitoring project focused on tracking health metrics and improving operational awareness in computer network environments.",
+    tech: ["Python", "Monitoring", "Computer Networks"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Computer-Networks-Server-Monitering-System",
+  },
+  {
+    title: "Design Analysis and Algorithms Codes",
+    description:
+      "Collection of design and analysis of algorithms practice implementations prepared for end-semester learning and revision.",
+    tech: ["Python", "Algorithms"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Design-Analysis-And-Algorithms-CODES",
+  },
+  {
+    title: "Smart Irrigation System (Embedded)",
+    description:
+      "Embedded and Python-assisted smart irrigation setup for automated water management using sensor-driven control.",
+    tech: ["Python", "Embedded Systems", "IoT"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Smart-irrigation-System-Embedded-",
+  },
+  {
+    title: "CODSOFT Projects",
+    description:
+      "Python task collection developed as part of CODSOFT activities, covering practical coding exercises and mini applications.",
+    tech: ["Python", "Problem Solving"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/CODSOFT",
+  },
+  {
+    title: "IPL Scheduler Project",
+    description:
+      "C programming project that designs an IPL match scheduler with logic for fixture generation and sequence planning.",
+    tech: ["C", "Scheduling", "Algorithms"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/IPL-Scheduler-project",
+  },
+  {
+    title: "User Interface Design Project",
+    description:
+      "Mentor and Me - online learning platform prototype emphasizing interface design, usability, and course interaction flows.",
+    tech: ["HTML", "CSS", "UI Design"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/User-Interface-Design-Project",
+  },
+  {
+    title: "Online Newspaper Case Study",
+    description:
+      "Case study for an online newspaper application combining operating systems concepts, database design, queries, and networking model ideas.",
+    tech: ["Case Study", "Database Design", "Networking"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/An-Online-News-Paper-using-Computer-Essentials",
+  },
+  {
+    title: "Wireless Sensor Networks",
+    description:
+      "Academic repository focused on wireless sensor networks and core concepts prepared through course presentation material.",
+    tech: ["Wireless Sensor Networks", "Networking"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Wireless-Sensor-Networks",
+  },
+  {
+    title: "Advanced Programming Report",
+    description:
+      "Comparative study discussing C++ and Python for university-level coding contests with emphasis on practical trade-offs.",
+    tech: ["C++", "Python", "Comparative Study"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Advanced-programming-report",
+  },
+  {
+    title: "Online Learning Platform with Hybrid Data Structures",
+    description:
+      "Mentor and Me implementation variant that applies hybrid data structures to improve core learning platform operations.",
+    tech: ["Python", "Data Structures", "EdTech"],
+    github: "https://github.com/Harsha-Vardhan-Tangudu/Online-Learning-Platform-Using-Hybrid-Data-Structures",
   },
 ]
 
