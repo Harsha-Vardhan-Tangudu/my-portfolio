@@ -216,14 +216,20 @@ const experience = [
 
 const publications = [
   {
-    title: "Sustainable Solutions for Livelihood Enhancement in Sadivayal Village - IEEE GHTC 2024",
+    title: "Implementation and Impact of Sustainable Agriculture and Water Management Solutions in Sadivayal Village, Tamil Nadu",
+    url: "https://www.amrita.edu/publication/implementation-and-impact-of-sustainable-agriculture-and-water-management-solutions-in-sadivayal-village-tamil-nadu/",
   },
   {
-    title: "A Framework for Detecting Violence in College Environment Using Computer Vision Techniques - I-SMAC 2024",
-    url: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ",
+    title: "AasivU: A Framework for Detecting Violence in College Environment using Computer Vision Techniques",
+    url: "https://ieeexplore.ieee.org/document/10714723/",
   },
   {
-    title: "A Comparative Analysis of SDN Controller Placement Problem: IoT-Specific Tactics and Generalized Solutions - RAIT 2025",
+    title: "A Comparative Analysis of SDN Controller Placement Problem: IoT-Specific Tactics and Generalized Solutions",
+    url: "https://ieeexplore.ieee.org/document/11089072/",
+  },
+  {
+    title: "Sustainable Solutions for Livelihood Enhancement in Sadivayal Village",
+    url: "https://ieeexplore.ieee.org/document/10771511/",
   },
 ]
 
