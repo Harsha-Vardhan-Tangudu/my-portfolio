@@ -46,8 +46,9 @@ const experience = [
     type: "Full-time",
     color: "#e17a3f",
     points: [
-      "Develop C++ backend components for MRS and ReactJS frontend modules for CIT, including bug fixes, feature delivery, and dependency upgrades.",
+      "Develop C++ backend components for MRS and Angular frontend modules for CIT, including bug fixes, feature delivery, and dependency upgrades.",
       "Led copy customization design and contributed to CIT version upgrades and product enhancements.",
+      "Designed a DMARC-compliant validation check for sender email address smart names in CIT.",
       "Implemented advertisement slot subscription functionality in the CIT layout design tool with role-based permissions.",
       "Supported IR and PTR backlogs by resolving production issues and assisting release readiness.",
     ],
@@ -122,8 +123,18 @@ const certificates = [
 ]
 
 const achievements = [
-  "Head, CSE — Anokha Tech Fest 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
-  "Cultural Head — Gokulashtami Event 2023 - 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
+  {
+    title: "Head, CSE",
+    event: "Anokha Tech Fest",
+    org: "Amrita Vishwa Vidyapeetham, Coimbatore",
+    year: "2024",
+  },
+  {
+    title: "Cultural Head",
+    event: "Gokulashtami Event",
+    org: "Amrita Vishwa Vidyapeetham, Coimbatore",
+    year: "2023 - 2024",
+  },
 ]
 
 const projectFilters = ["All", "Machine Learning", "Python", "IoT", "Cybersecurity", "Web"]
@@ -281,7 +292,6 @@ function App() {
                 <span className="eyebrow-pulse" />
                 SDE-1 @ Amadeus Bangalore
               </span>
-              <p className="hero-location">Ex-Intern @ Amadeus | CSE Graduate @ Amrita | Live-in-Labs Participant | Andhra Pradesh, India</p>
               <h1 className="hero-name">Tangudu<br />Harsha<br />Vardhan</h1>
               <p className="hero-role">
                 <span className="typed-text">{typed}</span>
@@ -516,10 +526,18 @@ function App() {
               </article>
             ))}
           </div>
-          <div className="achievement-strip">
-            {achievements.map((item) => (
-              <span key={item} className="achievement-badge">{item}</span>
-            ))}
+          <div className="achievement-block">
+            <h3 className="achievement-title">Key Achievements</h3>
+            <div className="achievement-grid">
+              {achievements.map((item) => (
+                <article key={item.title + item.year} className="achievement-card">
+                  <p className="achievement-role">{item.title}</p>
+                  <p className="achievement-event">{item.event}</p>
+                  <p className="achievement-org">{item.org}</p>
+                  <span className="achievement-year">{item.year}</span>
+                </article>
+              ))}
+            </div>
           </div>
         </RevealSection>
 
