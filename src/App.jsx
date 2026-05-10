@@ -91,6 +91,8 @@ const contactCards = [
 ]
 
 const memberships = [
+  { role: "Head, CSE", org: "Anokha Tech Fest, Amrita Vishwa Vidyapeetham, Coimbatore", year: "2024" },
+  { role: "Cultural Head", org: "Gokulashtami Event, Amrita Vishwa Vidyapeetham, Coimbatore", year: "2023 - 2024" },
   { role: "IoT Team Lead", org: "Intel IoT Club, Amrita Vishwa Vidyapeetham", year: "2023" },
   { role: "Hostel Committee Head", org: "CSE Department, Amrita Vishwa Vidyapeetham", year: "2023" },
   { role: "Public Relations Head", org: "IETE Chapter, Amrita Vishwa Vidyapeetham", year: "2024" },
@@ -100,8 +102,8 @@ const memberships = [
 
 const certificates = [
   "Supervised Machine Learning: Regression and Classification \u2014 Coursera, 2023",
-  "Head of CSE Department \u2014 Anokha Tech Fest 2024, Amrita Vishwa Vidyapeetham",
-  "Central Coordinator \u2014 Gokulashtami Event Management 2023 & 2024",
+  "Head, CSE \u2014 Anokha Tech Fest 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
+  "Cultural Head \u2014 Gokulashtami Event 2023 - 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
   "Participant \u2014 Aviskar Project Expo 2023 & 2025",
   "Presentation Certificate \u2014 I-SMAC Conference",
 ]
