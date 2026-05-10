@@ -27,9 +27,14 @@ const projects = [
 ]
 
 const skills = {
-  Languages: ["Python", "C++", "Java", "TypeScript", "HTML", "CSS", "SQL", "C"],
-  Frameworks: ["ReactJS", "Spring Boot", "NodeJS", "Angular"],
-  Tools: ["VS Code", "IntelliJ IDEA", "Grafana", "MySQL", "PostgreSQL", "Jupyter Notebook", "Arduino IDE"],
+  "Programming Languages": ["Python", "C++", "Java", "TypeScript", "C", "SQL", "JavaScript", "HTML", "CSS", "Embedded C"],
+  "Computer Science Fundamentals": ["Data Structures", "Theory of Computation", "Automata", "Regular Expressions", "Database Management Systems", "Information Retrieval", "Project Management"],
+  "AI / ML & Computer Vision": ["Machine Learning", "Machine Learning Algorithms", "Computer Vision", "Artificial Intelligence", "Convolutional Neural Networks (CNN)", "Support Vector Machine (SVM)", "Fuzzy Logic", "Anomaly Detection", "Phishing Detection", "Datasets"],
+  "IoT & Embedded Systems": ["Internet of Things (IoT)", "ESP32 Microcontrollers", "Sensors", "Actuators", "Automation", "Real-time Monitoring", "Arduino IDE"],
+  "Web, Frameworks & UI": ["ReactJS", "NodeJS", "Spring Boot", "Angular", "Front-End Development", "User Interface Design", "Microsoft PowerPoint", "Logo Design", "Poster Design"],
+  "Databases, Cloud & DevOps": ["MySQL", "PostgreSQL", "Oracle Database", "Grafana", "Docker", "Kubernetes", "OpenShift", "Microsoft Azure", "IBM Cloud", "Linux", "Shell Scripting", "Git", "Version Control"],
+  "Leadership & Communication": ["Leadership", "Organizational Leadership", "Team Leadership", "Organization Skills", "Event Planning", "Time Management", "Public Speaking", "Public Relations", "Online PR", "Public Affairs", "Business Development", "Research"],
+  "Developer Tools": ["GitHub", "VS Code", "IntelliJ IDEA", "Jupyter Notebook", "JFLAP"],
 }
 
 const experience = [
@@ -41,23 +46,23 @@ const experience = [
     type: "Full-time",
     color: "#e17a3f",
     points: [
-      "C++ backend development for MRS and ReactJS frontend for CIT, including bug fixes, new features, and library upgrades.",
-      "Led design of copy customization and contributed to CIT version upgrades and feature enhancements.",
-      "Integrated advertisement slot subscription functionality with proper permission management.",
-      "Supported IR and PTR backlogs with issue resolution and backlog management.",
+      "Develop C++ backend components for MRS and ReactJS frontend modules for CIT, including bug fixes, feature delivery, and dependency upgrades.",
+      "Led copy customization design and contributed to CIT version upgrades and product enhancements.",
+      "Implemented advertisement slot subscription functionality in the CIT layout design tool with role-based permissions.",
+      "Supported IR and PTR backlogs by resolving production issues and assisting release readiness.",
     ],
   },
   {
-    role: "Software Development Engineer",
+    role: "Software Development Engineer Intern",
     company: "Amadeus Software Labs",
     location: "Bangalore, India",
     period: "Jan 2025 \u2013 Jun 2025",
-    type: "Full-time",
+    type: "Internship",
     color: "#0a7a78",
     points: [
-      "Built and maintained Grafana dashboards for memory usage and TPS monitoring for the SITI project.",
-      "Developed a Spring Boot feature to calculate TPS and update results in the database.",
-      "Collaborated with the team to enhance monitoring and visualization capabilities.",
+      "Built and maintained Grafana dashboards to track memory usage and TPS for the SITI project.",
+      "Developed a Spring Boot module to calculate TPS and persist computed metrics to the database.",
+      "Collaborated with engineers to improve monitoring visibility and operational reporting.",
     ],
   },
   {
@@ -68,9 +73,9 @@ const experience = [
     type: "Research",
     color: "#8b5cf6",
     points: [
-      "Applied development knowledge to implement sustainable solutions in Sadivayal village.",
-      "Conducted human-centered design interviews to understand local needs.",
-      "Led brainstorming sessions contributing innovative ideas to address community challenges.",
+      "Applied software and problem-solving skills to implement sustainable interventions in Sadivayal village.",
+      "Conducted human-centered design interviews to identify community pain points and priorities.",
+      "Led ideation sessions and contributed practical, community-focused solution concepts.",
     ],
   },
 ]
@@ -84,7 +89,7 @@ const publications = [
 
 const contactCards = [
   { icon: "\u2709\ufe0f", platform: "Email", handle: "harshavardhantangudu1507@gmail.com", description: "Best way to reach me \u2014 I reply within 24 hours.", href: "mailto:harshavardhantangudu1507@gmail.com", cta: "Send a message", color: "#c84b31" },
-  { icon: "\ud83d\udcbc", platform: "LinkedIn", handle: "tangudu-harsha-vardhan", description: "Connect professionally \u2014 open to SDE roles and collaboration.", href: "https://www.linkedin.com/in/tangudu-harsha-vardhan-2714971aa/", cta: "Connect on LinkedIn", color: "#0a66c2" },
+  { icon: "\ud83d\udcbc", platform: "LinkedIn", handle: "tangudu-harsha-vardhan-2714971aa", description: "Connect professionally \u2014 500+ connections and open to SDE collaboration.", href: "https://www.linkedin.com/in/tangudu-harsha-vardhan-2714971aa/", cta: "Connect on LinkedIn", color: "#0a66c2" },
   { icon: "\ud83d\udc19", platform: "GitHub", handle: "Harsha-Vardhan-Tangudu", description: "Browse 21+ projects across ML, IoT, backend, and more.", href: "https://github.com/Harsha-Vardhan-Tangudu", cta: "View repositories", color: "#1b1f23" },
   { icon: "\ud83d\udd2c", platform: "ResearchGate", handle: "Research Publications", description: "4 peer-reviewed papers on CV, IoT, and cybersecurity.", href: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ", cta: "Read my research", color: "#40ba8f" },
   { icon: "\ud83d\udcde", platform: "Phone", handle: "+91 9110522381", description: "For quick chats, calls, or WhatsApp messages.", href: "tel:+919110522381", cta: "Call me", color: "#8b5cf6" },
@@ -101,11 +106,21 @@ const memberships = [
 ]
 
 const certificates = [
-  "Supervised Machine Learning: Regression and Classification \u2014 Coursera, 2023",
-  "Head, CSE \u2014 Anokha Tech Fest 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
-  "Cultural Head \u2014 Gokulashtami Event 2023 - 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
-  "Participant \u2014 Aviskar Project Expo 2023 & 2025",
-  "Presentation Certificate \u2014 I-SMAC Conference",
+  "Relational Database Systems — Universidad Nacional Autónoma de México, Apr 2025 (Credential ID: Z92XVHA8CZUJ)",
+  "NoSQL Systems — Universidad Nacional Autónoma de México, Apr 2025 (Credential ID: 1NR3WHHQ8DY5)",
+  "Crash Course on Python — Google, Apr 2025 (Credential ID: PVDO1TPM332H)",
+  "Version Control with Git — Atlassian, Apr 2025 (Credential ID: K2HV6ECUWFS7)",
+  "Dive Into Kubernetes: Containers, Docker & Kubernetes — Coursera Instructor Network, May 2025 (Credential ID: NNP4LGBAQMG5)",
+  "Introduction to Containers with Docker, Kubernetes & OpenShift — IBM, Apr 2025 (Credential ID: EOAPVI3P752F)",
+  "Hands-on Introduction to Linux Commands and Shell Scripting — IBM, May 2025 (Credential ID: IMZUNVOMVIQ4)",
+  "Introduction to Microsoft Azure Cloud Services — Microsoft, May 2025 (Credential ID: 669ZFMN3JIP2)",
+  "Introduction to Cloud Computing — IBM, May 2025 (Credential ID: 4OCGGTCPGE0S)",
+  "DevOps Culture and Mindset — University of California, Davis, Mar 2025 (Credential ID: 3ULVG92A3X1R)",
+  "DevOps Capstone Project — IBM, May 2025 (Credential ID: JBRTCSQV1APO)",
+  "Presentation Certificate — I-SMAC Conference, 2024",
+  "Participant — Aviskar Project Expo, 2023 & 2025",
+  "Achievement: Head, CSE — Anokha Tech Fest 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
+  "Achievement: Cultural Head — Gokulashtami Event 2023 - 2024, Amrita Vishwa Vidyapeetham, Coimbatore",
 ]
 
 const projectFilters = ["All", "Machine Learning", "Python", "IoT", "Cybersecurity", "Web"]
@@ -261,8 +276,9 @@ function App() {
             <div className="hero-left">
               <span className="hero-eyebrow">
                 <span className="eyebrow-pulse" />
-                Available for SDE roles
+                SDE-1 @ Amadeus Bangalore
               </span>
+              <p className="hero-location">Ex-Intern @ Amadeus | CSE Graduate @ Amrita | Live-in-Labs Participant | Andhra Pradesh, India</p>
               <h1 className="hero-name">Tangudu<br />Harsha<br />Vardhan</h1>
               <p className="hero-role">
                 <span className="typed-text">{typed}</span>
@@ -311,8 +327,8 @@ function App() {
           <h2 className="section-heading">Who I Am</h2>
           <div className="about-grid">
             <div className="about-text">
-              <p>Enthusiastic software engineer with a strong Python and systems background. Passionate about innovative problem-solving, clean implementation, and continuous learning.</p>
-              <p>I love building tools that are <strong>measurable</strong>, <strong>maintainable</strong>, and <strong>valuable</strong> — whether it is a Grafana dashboard at Amadeus or a CV pipeline for campus safety.</p>
+              <p>Enthusiastic software engineer with a solid Python background, strong systems fundamentals, and hands-on product development experience at Amadeus.</p>
+              <p>I work across ML, IoT, backend systems, and frontend engineering to build solutions that are <strong>measurable</strong>, <strong>maintainable</strong>, and <strong>impactful</strong>.</p>
             </div>
             <div className="about-tags">
               {["Backend Systems", "Machine Learning", "IoT", "ReactJS", "Research", "Spring Boot"].map((tag) => (
