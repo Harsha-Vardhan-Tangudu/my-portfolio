@@ -241,18 +241,51 @@ const publications = [
   },
 ]
 
-const socialLinks = [
+const contactCards = [
   {
-    label: "GitHub",
+    icon: "✉️",
+    platform: "Email",
+    handle: "harshavardhantangudu1507@gmail.com",
+    description: "Best way to reach me. I reply within 24 hours.",
+    href: "mailto:harshavardhantangudu1507@gmail.com",
+    cta: "Send a message",
+    color: "#c84b31",
+  },
+  {
+    icon: "💼",
+    platform: "LinkedIn",
+    handle: "tangudu-harsha-vardhan",
+    description: "Connect professionally — open to SDE roles and collaboration.",
+    href: "https://www.linkedin.com/in/tangudu-harsha-vardhan-2714971aa/",
+    cta: "Connect on LinkedIn",
+    color: "#0a66c2",
+  },
+  {
+    icon: "🐙",
+    platform: "GitHub",
+    handle: "Harsha-Vardhan-Tangudu",
+    description: "Browse 21+ projects across ML, IoT, backend, and more.",
     href: "https://github.com/Harsha-Vardhan-Tangudu",
+    cta: "View my repositories",
+    color: "#1b1f23",
   },
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/Harsha",
-  },
-  {
-    label: "Research Paper",
+    icon: "🔬",
+    platform: "ResearchGate",
+    handle: "Research Publications",
+    description: "4 peer-reviewed papers on CV, IoT, and cybersecurity.",
     href: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ",
+    cta: "Read my research",
+    color: "#40ba8f",
+  },
+  {
+    icon: "📞",
+    platform: "Phone",
+    handle: "+91 9110522381",
+    description: "For quick chats, calls, or WhatsApp messages.",
+    href: "tel:+919110522381",
+    cta: "Call me",
+    color: "#8b5cf6",
   },
 ]
 
@@ -561,29 +594,31 @@ function App() {
         </section>
 
         <section id="contact" className="section">
-          <div className="card contact-card">
-            <SectionTitle hint="Open to internships, full-time roles, and collaboration.">
-              Contact
-            </SectionTitle>
-            <div className="social-strip">
-              {socialLinks.map((social) => (
-                <a key={social.label} href={social.href} target="_blank" rel="noreferrer">
-                  {social.label}
-                </a>
-              ))}
-            </div>
-            <ul className="contact-list">
-              <li>
-                Email: <a href="mailto:harshavardhantangudu1507@gmail.com">harshavardhantangudu1507@gmail.com</a>
-              </li>
-              <li>
-                GitHub: <a href="https://github.com/Harsha-Vardhan-Tangudu" target="_blank" rel="noreferrer">github.com/Harsha-Vardhan-Tangudu</a>
-              </li>
-              <li>
-                LinkedIn: <a href="https://linkedin.com/in/Harsha" target="_blank" rel="noreferrer">linkedin.com/in/Harsha</a>
-              </li>
-              <li>Phone: +91 9110522381</li>
-            </ul>
+          <SectionTitle hint="Open to full-time SDE roles, internships, research collabs, and more.">
+            Let's Connect
+          </SectionTitle>
+          <p className="contact-intro">
+            Whether you have a project idea, a job opportunity, or just want to talk tech — I'm always happy to chat.
+          </p>
+          <div className="contact-cards-grid">
+            {contactCards.map((card) => (
+              <a
+                key={card.platform}
+                href={card.href}
+                target={card.href.startsWith("mailto") || card.href.startsWith("tel") ? "_self" : "_blank"}
+                rel="noreferrer"
+                className="contact-card-link"
+                style={{ "--card-accent": card.color }}
+              >
+                <div className="contact-card-icon">{card.icon}</div>
+                <div className="contact-card-body">
+                  <p className="contact-card-platform">{card.platform}</p>
+                  <p className="contact-card-handle">{card.handle}</p>
+                  <p className="contact-card-desc">{card.description}</p>
+                </div>
+                <span className="contact-card-cta">{card.cta} →</span>
+              </a>
+            ))}
           </div>
         </section>
       </main>

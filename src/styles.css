@@ -472,37 +472,88 @@ a {
   color: #8f4d26;
 }
 
-.contact-card {
-  background: linear-gradient(140deg, #fff8ec, #edf6f6);
-}
-
-.social-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 12px;
-}
-
-.social-strip a {
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 999px;
-  padding: 7px 12px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #0d5b58;
-}
-
-.contact-list {
-  margin: 0;
-  padding-left: 18px;
+.contact-intro {
+  text-align: center;
   color: var(--muted);
-  line-height: 1.9;
+  margin: -10px auto 28px;
+  max-width: 560px;
+  line-height: 1.7;
 }
 
-.contact-list a {
-  color: #0d5b58;
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.contact-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1.5px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--card-accent, var(--accent));
+  opacity: 0.85;
+}
+
+.contact-card-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  border-color: var(--card-accent, var(--accent));
+}
+
+.contact-card-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.contact-card-body {
+  flex: 1;
+}
+
+.contact-card-platform {
+  margin: 0 0 2px;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--fg);
+}
+
+.contact-card-handle {
+  margin: 0 0 6px;
+  font-size: 0.82rem;
+  color: var(--card-accent, var(--accent));
   font-weight: 700;
+  word-break: break-all;
+}
+
+.contact-card-desc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.contact-card-cta {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--card-accent, var(--accent));
+  margin-top: 4px;
 }
 
 .footer {
