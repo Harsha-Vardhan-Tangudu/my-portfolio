@@ -95,11 +95,11 @@ const experience = [
     type: "Full-time",
     color: "#e17a3f",
     points: [
-      "Develop C++ backend components for MRS and Angular frontend modules for CIT, including bug fixes, feature delivery, and dependency upgrades.",
-      "Led copy customization design and contributed to CIT version upgrades and product enhancements.",
-      "Designed a DMARC-compliant validation check for sender email address smart names in CIT.",
-      "Implemented advertisement slot subscription functionality in the CIT layout design tool with role-based permissions.",
-      "Supported IR and PTR backlogs by resolving production issues and assisting release readiness.",
+      "Built C++ backend for MRS and Angular modules for CIT.",
+      "Delivered bug fixes, upgrades, and release-ready features.",
+      "Added DMARC validation for sender smart names in CIT.",
+      "Implemented ad-slot subscription with role-based access.",
+      "Supported IR/PTR backlogs and release readiness.",
     ],
   },
   {
@@ -110,9 +110,9 @@ const experience = [
     type: "Internship",
     color: "#0a7a78",
     points: [
-      "Built and maintained Grafana dashboards to track memory usage and TPS for the SITI project.",
-      "Developed a Spring Boot module to calculate TPS and persist computed metrics to the database.",
-      "Collaborated with engineers to improve monitoring visibility and operational reporting.",
+      "Built Grafana dashboards for memory and TPS tracking.",
+      "Developed Spring Boot TPS service with DB persistence.",
+      "Improved monitoring visibility with the team.",
     ],
   },
   {
@@ -123,9 +123,9 @@ const experience = [
     type: "Research",
     color: "#8b5cf6",
     points: [
-      "Applied software and problem-solving skills to implement sustainable interventions in Sadivayal village.",
-      "Conducted human-centered design interviews to identify community pain points and priorities.",
-      "Led ideation sessions and contributed practical, community-focused solution concepts.",
+      "Worked on sustainability interventions in Sadivayal.",
+      "Ran user interviews to identify key pain points.",
+      "Contributed practical community-focused solutions.",
     ],
   },
 ]
@@ -138,11 +138,11 @@ const publications = [
 ]
 
 const contactCards = [
-  { icon: "\u2709\ufe0f", platform: "Email", handle: "harshavardhantangudu1507@gmail.com", description: "Best way to reach me \u2014 I reply within 24 hours.", href: "mailto:harshavardhantangudu1507@gmail.com", cta: "Send a message", color: "#c84b31" },
-  { icon: "\ud83d\udcbc", platform: "LinkedIn", handle: "tangudu-harsha-vardhan-2714971aa", description: "Connect professionally \u2014 500+ connections and open to SDE collaboration.", href: "https://www.linkedin.com/in/tangudu-harsha-vardhan-2714971aa/", cta: "Connect on LinkedIn", color: "#0a66c2" },
+  { icon: "\u2709\ufe0f", platform: "Email", handle: "harshavardhantangudu1507@gmail.com", description: "Best way to reach me. Usually replies in a day.", href: "mailto:harshavardhantangudu1507@gmail.com", cta: "Send a message", color: "#c84b31" },
+  { icon: "\ud83d\udcbc", platform: "LinkedIn", handle: "tangudu-harsha-vardhan-2714971aa", description: "Let us connect for SDE and backend roles.", href: "https://www.linkedin.com/in/tangudu-harsha-vardhan-2714971aa/", cta: "Connect on LinkedIn", color: "#0a66c2" },
   { icon: "\ud83d\udc19", platform: "GitHub", handle: "Harsha-Vardhan-Tangudu", description: "Browse 21+ projects across ML, IoT, backend, and more.", href: "https://github.com/Harsha-Vardhan-Tangudu", cta: "View repositories", color: "#7c3aed" },
-  { icon: "\ud83d\udd2c", platform: "ResearchGate", handle: "Research Publications", description: "4 peer-reviewed papers on CV, IoT, and cybersecurity.", href: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ", cta: "Read my research", color: "#40ba8f" },
-  { icon: "\ud83d\udcde", platform: "Phone", handle: "+91 9110522381", description: "For quick chats, calls, or WhatsApp messages.", href: "tel:+919110522381", cta: "Call me", color: "#8b5cf6" },
+  { icon: "\ud83d\udd2c", platform: "ResearchGate", handle: "Research Publications", description: "4 peer-reviewed papers in CV, IoT, and security.", href: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ", cta: "Read my research", color: "#40ba8f" },
+  { icon: "\ud83d\udcde", platform: "Phone", handle: "+91 9110522381", description: "Quick call or WhatsApp works too.", href: "tel:+919110522381", cta: "Call me", color: "#8b5cf6" },
 ]
 
 const memberships = [
@@ -393,8 +393,7 @@ function App() {
                 <span className="cursor" aria-hidden="true">|</span>
               </p>
               <p className="hero-bio">
-                I focus on backend systems and Angular frontend delivery, with practical cloud
-                and devops capabilities plus applied AI/ML/IoT depth when product needs demand it.
+                Backend-focused SDE building clean C++ and Java services, with Angular delivery and practical cloud/devops skills.
               </p>
               <div className="hero-actions">
                 <a className="btn btn-primary" href="#projects">
@@ -435,8 +434,8 @@ function App() {
           <h2 className="section-heading">Who I Am</h2>
           <div className="about-grid">
             <div className="about-text">
-              <p>Enthusiastic software engineer with a solid Python background, strong systems fundamentals, and hands-on product development experience at Amadeus.</p>
-              <p>I work across ML, IoT, backend systems, and frontend engineering to build solutions that are <strong>measurable</strong>, <strong>maintainable</strong>, and <strong>impactful</strong>.</p>
+              <p>Software engineer with hands-on product experience at Amadeus.</p>
+              <p>I build practical backend and frontend solutions that are <strong>clean</strong>, <strong>maintainable</strong>, and <strong>impactful</strong>.</p>
             </div>
             <div className="about-tags">
               {["Backend Systems", "Angular", "Cloud/DevOps", "Machine Learning", "IoT", "Spring Boot"].map((tag) => (
@@ -488,8 +487,7 @@ function App() {
                 <span className="focus-tag secondary">IoT</span>
               </div>
               <p>
-                Designed to spotlight proven engineering execution first, while still showing
-                strong momentum in booming AI/ML and IoT capabilities.
+                Core focus: backend + Angular, with steady growth in AI/ML and IoT.
               </p>
             </div>
           </div>
@@ -722,7 +720,7 @@ function App() {
           <div className="section-label">Contact</div>
           <h2 className="section-heading">Let's Connect</h2>
           <p className="contact-intro">
-            Whether you have a project idea, a job opportunity, or just want to talk tech — I am always happy to chat.
+            Open to roles, projects, and tech conversations.
           </p>
           <div className="contact-grid">
             {contactCards.map((card) => (
