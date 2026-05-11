@@ -279,7 +279,6 @@ function App() {
   }, [darkMode])
 
   const taggedProjects = useMemo(() => projects.map((p) => ({ ...p, category: inferCategory(p) })), [])
-  const MAX_PROJECTS = 12
 
   const filteredProjects = useMemo(() => {
     return taggedProjects.filter((p) => {
@@ -287,11 +286,10 @@ function App() {
       const haystack = `${p.title} ${p.description} ${p.tech.join(" ")}`.toLowerCase()
       const matchesSearch = haystack.includes(searchQuery.trim().toLowerCase())
       return matchesFilter && matchesSearch
-    }).slice(0, MAX_PROJECTS)
+    })
   }, [activeFilter, searchQuery, taggedProjects])
 
   const spotlightSkills = useMemo(() => skillSpotlight[skillTrack] ?? [], [skillTrack])
-  const visibleCertificates = useMemo(() => certificates.slice(0, 8), [])
 
   const projectCategoryMix = useMemo(() => {
     const counts = taggedProjects.reduce((acc, project) => {
@@ -559,7 +557,7 @@ function App() {
 
         <RevealSection id="projects" className="section">
           <div className="section-label">Projects</div>
-          <h2 className="section-heading">Selected Projects</h2>
+          <h2 className="section-heading">What I Have Built</h2>
           <div className="project-controls">
             <div className="search-box">
               <span className="search-icon">🔍</span>
@@ -580,7 +578,7 @@ function App() {
                 </button>
               ))}
             </div>
-            <p className="result-count">Showing {filteredProjects.length} concise picks</p>
+            <p className="result-count">{filteredProjects.length} project{filteredProjects.length !== 1 ? "s" : ""}</p>
           </div>
           <div className="projects-grid">
             {filteredProjects.map((project) => {
@@ -677,10 +675,9 @@ function App() {
 
         <RevealSection className="section cert-section">
           <div className="section-label">Credentials</div>
-          <h2 className="section-heading">Selected Certificates</h2>
-          <p className="result-count">Showing {visibleCertificates.length} of {certificates.length}</p>
+          <h2 className="section-heading">Certificates</h2>
           <div className="cert-grid">
-            {visibleCertificates.map((c, index) => (
+            {certificates.map((c, index) => (
               <article key={c} className="cert-card">
                 <span className="cert-index">#{String(index + 1).padStart(2, "0")}</span>
                 <p>{c}</p>
