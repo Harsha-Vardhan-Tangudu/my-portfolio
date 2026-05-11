@@ -675,7 +675,15 @@ img { display: block; max-width: 100%; }
 .project-expand { font-size: 1.1rem; color: var(--muted); font-weight: 700; transition: color 0.2s, transform 0.2s; }
 .project-card.expanded .project-expand { color: var(--blue-2); transform: rotate(0deg); }
 .project-title { font-size: 0.95rem; font-weight: 800; margin-bottom: 8px; line-height: 1.35; }
-.project-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+.project-desc {
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .project-extra { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, opacity 0.25s ease; opacity: 0; }
 .project-extra.open { max-height: 200px; opacity: 1; }
 .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }

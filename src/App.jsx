@@ -93,13 +93,12 @@ const experience = [
     location: "Bangalore, India",
     period: "Jul 2025 \u2013 Present",
     type: "Full-time",
-    color: "#e17a3f",
+    color: "#8b5cf6",
     points: [
-      "Develop C++ backend components for MRS and Angular frontend modules for CIT, including bug fixes, feature delivery, and dependency upgrades.",
-      "Led copy customization design and contributed to CIT version upgrades and product enhancements.",
-      "Designed a DMARC-compliant validation check for sender email address smart names in CIT.",
-      "Implemented advertisement slot subscription functionality in the CIT layout design tool with role-based permissions.",
-      "Supported IR and PTR backlogs by resolving production issues and assisting release readiness.",
+      "Built C++ backend for MRS and Angular modules for CIT.",
+      "Delivered bug fixes, upgrades, and release-ready features.",
+      "Added DMARC validation for sender smart names in CIT.",
+      "Implemented ad-slot subscription with role-based access.",
     ],
   },
   {
@@ -108,11 +107,11 @@ const experience = [
     location: "Bangalore, India",
     period: "Jan 2025 \u2013 Jun 2025",
     type: "Internship",
-    color: "#0a7a78",
+    color: "#22d3ee",
     points: [
-      "Built and maintained Grafana dashboards to track memory usage and TPS for the SITI project.",
-      "Developed a Spring Boot module to calculate TPS and persist computed metrics to the database.",
-      "Collaborated with engineers to improve monitoring visibility and operational reporting.",
+      "Built Grafana dashboards for memory and TPS tracking.",
+      "Developed Spring Boot TPS service with DB persistence.",
+      "Improved monitoring visibility with the core team.",
     ],
   },
   {
@@ -121,11 +120,11 @@ const experience = [
     location: "Sadivayal Village, Tamil Nadu",
     period: "Jan 2024 \u2013 Aug 2024",
     type: "Research",
-    color: "#8b5cf6",
+    color: "#34d399",
     points: [
-      "Applied software and problem-solving skills to implement sustainable interventions in Sadivayal village.",
-      "Conducted human-centered design interviews to identify community pain points and priorities.",
-      "Led ideation sessions and contributed practical, community-focused solution concepts.",
+      "Worked on practical sustainability interventions in Sadivayal.",
+      "Ran user interviews to identify local pain points.",
+      "Contributed solution ideas focused on community impact.",
     ],
   },
 ]
@@ -138,11 +137,11 @@ const publications = [
 ]
 
 const contactCards = [
-  { icon: "\u2709\ufe0f", platform: "Email", handle: "harshavardhantangudu1507@gmail.com", description: "Best way to reach me \u2014 I reply within 24 hours.", href: "mailto:harshavardhantangudu1507@gmail.com", cta: "Send a message", color: "#c84b31" },
-  { icon: "\ud83d\udcbc", platform: "LinkedIn", handle: "tangudu-harsha-vardhan-2714971aa", description: "Connect professionally \u2014 500+ connections and open to SDE collaboration.", href: "https://www.linkedin.com/in/tangudu-harsha-vardhan-2714971aa/", cta: "Connect on LinkedIn", color: "#0a66c2" },
+  { icon: "\u2709\ufe0f", platform: "Email", handle: "harshavardhantangudu1507@gmail.com", description: "Best way to reach me. Usually replies in a day.", href: "mailto:harshavardhantangudu1507@gmail.com", cta: "Send a message", color: "#22d3ee" },
+  { icon: "\ud83d\udcbc", platform: "LinkedIn", handle: "tangudu-harsha-vardhan-2714971aa", description: "Let us connect for SDE and backend roles.", href: "https://www.linkedin.com/in/tangudu-harsha-vardhan-2714971aa/", cta: "Connect on LinkedIn", color: "#8b5cf6" },
   { icon: "\ud83d\udc19", platform: "GitHub", handle: "Harsha-Vardhan-Tangudu", description: "Browse 21+ projects across ML, IoT, backend, and more.", href: "https://github.com/Harsha-Vardhan-Tangudu", cta: "View repositories", color: "#7c3aed" },
-  { icon: "\ud83d\udd2c", platform: "ResearchGate", handle: "Research Publications", description: "4 peer-reviewed papers on CV, IoT, and cybersecurity.", href: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ", cta: "Read my research", color: "#40ba8f" },
-  { icon: "\ud83d\udcde", platform: "Phone", handle: "+91 9110522381", description: "For quick chats, calls, or WhatsApp messages.", href: "tel:+919110522381", cta: "Call me", color: "#8b5cf6" },
+  { icon: "\ud83d\udd2c", platform: "ResearchGate", handle: "Research Publications", description: "4 peer-reviewed papers in CV, IoT, and security.", href: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ", cta: "Read my research", color: "#34d399" },
+  { icon: "\ud83d\udcde", platform: "Phone", handle: "+91 9110522381", description: "Quick call or WhatsApp works too.", href: "tel:+919110522381", cta: "Call me", color: "#a78bfa" },
 ]
 
 const memberships = [
@@ -185,7 +184,7 @@ function inferCategory(project) {
 }
 
 function categoryColor(cat) {
-  const map = { "Machine Learning": "#e17a3f", Cybersecurity: "#c84b31", IoT: "#0a7a78", Web: "#0a66c2", Python: "#8b5cf6" }
+  const map = { "Machine Learning": "#8b5cf6", Cybersecurity: "#a78bfa", IoT: "#34d399", Web: "#22d3ee", Python: "#7c3aed" }
   return map[cat] || "#888"
 }
 
@@ -280,6 +279,7 @@ function App() {
   }, [darkMode])
 
   const taggedProjects = useMemo(() => projects.map((p) => ({ ...p, category: inferCategory(p) })), [])
+  const MAX_PROJECTS = 12
 
   const filteredProjects = useMemo(() => {
     return taggedProjects.filter((p) => {
@@ -287,10 +287,11 @@ function App() {
       const haystack = `${p.title} ${p.description} ${p.tech.join(" ")}`.toLowerCase()
       const matchesSearch = haystack.includes(searchQuery.trim().toLowerCase())
       return matchesFilter && matchesSearch
-    })
+    }).slice(0, MAX_PROJECTS)
   }, [activeFilter, searchQuery, taggedProjects])
 
   const spotlightSkills = useMemo(() => skillSpotlight[skillTrack] ?? [], [skillTrack])
+  const visibleCertificates = useMemo(() => certificates.slice(0, 8), [])
 
   const projectCategoryMix = useMemo(() => {
     const counts = taggedProjects.reduce((acc, project) => {
@@ -367,8 +368,7 @@ function App() {
                 <span className="cursor" aria-hidden="true">|</span>
               </p>
               <p className="hero-bio">
-                I focus on backend systems and Angular frontend delivery, with practical cloud
-                and devops capabilities plus applied AI/ML/IoT depth when product needs demand it.
+                Backend-focused SDE building clean C++ and Java services, with Angular delivery and practical cloud/devops skills.
               </p>
               <div className="hero-actions">
                 <a className="btn btn-primary" href="#projects">
@@ -409,8 +409,8 @@ function App() {
           <h2 className="section-heading">Who I Am</h2>
           <div className="about-grid">
             <div className="about-text">
-              <p>Enthusiastic software engineer with a solid Python background, strong systems fundamentals, and hands-on product development experience at Amadeus.</p>
-              <p>I work across ML, IoT, backend systems, and frontend engineering to build solutions that are <strong>measurable</strong>, <strong>maintainable</strong>, and <strong>impactful</strong>.</p>
+              <p>Software engineer with hands-on product experience at Amadeus.</p>
+              <p>I build practical backend and frontend solutions that are <strong>clean</strong>, <strong>maintainable</strong>, and <strong>impactful</strong>.</p>
             </div>
             <div className="about-tags">
               {["Backend Systems", "Angular", "Cloud/DevOps", "Machine Learning", "IoT", "Spring Boot"].map((tag) => (
@@ -462,8 +462,7 @@ function App() {
                 <span className="focus-tag secondary">IoT</span>
               </div>
               <p>
-                Designed to spotlight proven engineering execution first, while still showing
-                strong momentum in booming AI/ML and IoT capabilities.
+                Core focus: backend + Angular, with steady growth in AI/ML and IoT.
               </p>
             </div>
           </div>
@@ -560,7 +559,7 @@ function App() {
 
         <RevealSection id="projects" className="section">
           <div className="section-label">Projects</div>
-          <h2 className="section-heading">What I Have Built</h2>
+          <h2 className="section-heading">Selected Projects</h2>
           <div className="project-controls">
             <div className="search-box">
               <span className="search-icon">🔍</span>
@@ -581,7 +580,7 @@ function App() {
                 </button>
               ))}
             </div>
-            <p className="result-count">{filteredProjects.length} project{filteredProjects.length !== 1 ? "s" : ""}</p>
+            <p className="result-count">Showing {filteredProjects.length} concise picks</p>
           </div>
           <div className="projects-grid">
             {filteredProjects.map((project) => {
@@ -678,9 +677,10 @@ function App() {
 
         <RevealSection className="section cert-section">
           <div className="section-label">Credentials</div>
-          <h2 className="section-heading">Certificates</h2>
+          <h2 className="section-heading">Selected Certificates</h2>
+          <p className="result-count">Showing {visibleCertificates.length} of {certificates.length}</p>
           <div className="cert-grid">
-            {certificates.map((c, index) => (
+            {visibleCertificates.map((c, index) => (
               <article key={c} className="cert-card">
                 <span className="cert-index">#{String(index + 1).padStart(2, "0")}</span>
                 <p>{c}</p>
@@ -693,7 +693,7 @@ function App() {
           <div className="section-label">Contact</div>
           <h2 className="section-heading">Let's Connect</h2>
           <p className="contact-intro">
-            Whether you have a project idea, a job opportunity, or just want to talk tech — I am always happy to chat.
+            Open to roles, projects, and tech conversations.
           </p>
           <div className="contact-grid">
             {contactCards.map((card) => (
