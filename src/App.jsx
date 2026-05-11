@@ -93,7 +93,7 @@ const experience = [
     location: "Bangalore, India",
     period: "Jul 2025 \u2013 Present",
     type: "Full-time",
-    color: "#e17a3f",
+    color: "#8b5cf6",
     points: [
       "Built C++ backend for MRS and Angular modules for CIT.",
       "Delivered bug fixes, upgrades, and release-ready features.",
@@ -108,7 +108,7 @@ const experience = [
     location: "Bangalore, India",
     period: "Jan 2025 \u2013 Jun 2025",
     type: "Internship",
-    color: "#0a7a78",
+    color: "#22d3ee",
     points: [
       "Built Grafana dashboards for memory and TPS tracking.",
       "Developed Spring Boot TPS service with DB persistence.",
@@ -121,7 +121,7 @@ const experience = [
     location: "Sadivayal Village, Tamil Nadu",
     period: "Jan 2024 \u2013 Aug 2024",
     type: "Research",
-    color: "#8b5cf6",
+    color: "#34d399",
     points: [
       "Worked on sustainability interventions in Sadivayal.",
       "Ran user interviews to identify key pain points.",
@@ -138,10 +138,10 @@ const publications = [
 ]
 
 const contactCards = [
-  { icon: "\u2709\ufe0f", platform: "Email", handle: "harshavardhantangudu1507@gmail.com", description: "Best way to reach me. Usually replies in a day.", href: "mailto:harshavardhantangudu1507@gmail.com", cta: "Send a message", color: "#c84b31" },
-  { icon: "\ud83d\udcbc", platform: "LinkedIn", handle: "tangudu-harsha-vardhan-2714971aa", description: "Let us connect for SDE and backend roles.", href: "https://www.linkedin.com/in/tangudu-harsha-vardhan-2714971aa/", cta: "Connect on LinkedIn", color: "#0a66c2" },
+  { icon: "\u2709\ufe0f", platform: "Email", handle: "harshavardhantangudu1507@gmail.com", description: "Best way to reach me. Usually replies in a day.", href: "mailto:harshavardhantangudu1507@gmail.com", cta: "Send a message", color: "#22d3ee" },
+  { icon: "\ud83d\udcbc", platform: "LinkedIn", handle: "tangudu-harsha-vardhan-2714971aa", description: "Let us connect for SDE and backend roles.", href: "https://www.linkedin.com/in/tangudu-harsha-vardhan-2714971aa/", cta: "Connect on LinkedIn", color: "#a78bfa" },
   { icon: "\ud83d\udc19", platform: "GitHub", handle: "Harsha-Vardhan-Tangudu", description: "Browse 21+ projects across ML, IoT, backend, and more.", href: "https://github.com/Harsha-Vardhan-Tangudu", cta: "View repositories", color: "#7c3aed" },
-  { icon: "\ud83d\udd2c", platform: "ResearchGate", handle: "Research Publications", description: "4 peer-reviewed papers in CV, IoT, and security.", href: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ", cta: "Read my research", color: "#40ba8f" },
+  { icon: "\ud83d\udd2c", platform: "ResearchGate", handle: "Research Publications", description: "4 peer-reviewed papers in CV, IoT, and security.", href: "https://www.researchgate.net/publication/385203128_AasivU_A_Framework_for_Detecting_Violence_in_College_Environment_using_Computer_Vision_Techniques?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ", cta: "Read my research", color: "#34d399" },
   { icon: "\ud83d\udcde", platform: "Phone", handle: "+91 9110522381", description: "Quick call or WhatsApp works too.", href: "tel:+919110522381", cta: "Call me", color: "#8b5cf6" },
 ]
 
@@ -206,8 +206,13 @@ function inferCategory(project) {
 }
 
 function categoryColor(cat) {
-  const map = { "Machine Learning": "#e17a3f", Cybersecurity: "#c84b31", IoT: "#0a7a78", Web: "#0a66c2", Python: "#8b5cf6" }
+  const map = { "Machine Learning": "#8b5cf6", Cybersecurity: "#a78bfa", IoT: "#34d399", Web: "#22d3ee", Python: "#7c3aed" }
   return map[cat] || "#888"
+}
+
+function compactProjectDescription(description, maxLength = 95) {
+  if (description.length <= maxLength) return description
+  return `${description.slice(0, maxLength).replace(/\s+\S*$/, "")}...`
 }
 
 /* HOOKS */
@@ -626,8 +631,11 @@ function App() {
                       <span className="project-expand">{isExpanded ? "\u2212" : "+"}</span>
                     </div>
                     <h3 className="project-title">{project.title}</h3>
-                    <p className="project-desc">{project.description}</p>
+                    <p className="project-desc">{compactProjectDescription(project.description)}</p>
                     <div className={`project-extra ${isExpanded ? "open" : ""}`}>
+                      {project.description !== compactProjectDescription(project.description) && (
+                        <p className="project-desc">{project.description}</p>
+                      )}
                       <div className="project-tech">
                         {project.tech.map((t) => (
                           <span key={t} className="tech-tag">{t}</span>
