@@ -672,14 +672,21 @@ img { display: block; max-width: 100%; }
 .project-top { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
 .project-cat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .project-cat { font-size: 0.74rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; flex: 1; }
+.project-cat-more {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--blue-1);
+  background: rgba(139,92,246,0.12);
+  border: 1px solid rgba(139,92,246,0.24);
+}
 .project-expand { font-size: 1.1rem; color: var(--muted); font-weight: 700; transition: color 0.2s, transform 0.2s; }
 .project-card.expanded .project-expand { color: var(--blue-2); transform: rotate(0deg); }
 .project-title { font-size: 0.95rem; font-weight: 800; margin-bottom: 8px; line-height: 1.35; }
-.project-desc {
-  font-size: 0.86rem;
-  color: var(--muted);
-  line-height: 1.65;
-}
+.project-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
 .project-extra { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, opacity 0.25s ease; opacity: 0; }
 .project-extra.open { max-height: 200px; opacity: 1; }
 .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
