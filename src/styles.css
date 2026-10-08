@@ -470,6 +470,20 @@ img { display: block; max-width: 100%; }
 .timeline-points li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
 .point-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
 
+.work-highlights { margin-top: 28px; }
+.work-highlights > h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 14px; }
+.work-highlights-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.work-highlight-card {
+  padding: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+}
+.work-highlight-card h4 { color: var(--blue-2); font-size: 0.92rem; margin-bottom: 9px; }
+.work-highlight-card ul { padding-left: 17px; display: grid; gap: 7px; }
+.work-highlight-card li { color: var(--muted); font-size: 0.82rem; line-height: 1.55; }
+
 /* -- SKILLS -- */
 .skill-spotlight {
   background: linear-gradient(145deg, rgba(124,58,237,0.18), rgba(34,211,238,0.10));
@@ -944,6 +958,7 @@ img { display: block; max-width: 100%; }
   .about-grid { grid-template-columns: 1fr; }
   .dashboard-metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .dashboard-deep-grid { grid-template-columns: 1fr; }
+  .work-highlights-grid { grid-template-columns: 1fr; }
   .stats-cluster { grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 600px) {

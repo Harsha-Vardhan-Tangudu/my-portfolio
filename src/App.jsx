@@ -130,6 +130,45 @@ const experience = [
   },
 ]
 
+const workHighlights = [
+  {
+    title: "MRS & CIT",
+    points: [
+      "Translation Management, HIDE_SMARTNAME, periodic scans, preload setup, and CIT/MRS UAT fixes.",
+      "Delivered Adbanner to UAT; made Audit Trail work in test; supported DMARC and credential renewal.",
+      "Handled secrets cleanup, Audit Key/trial fixes, GitHub and NAS-to-Artifactory migrations, Crypto++ removal, and pack upgrades.",
+      "Fixed CIT frontend/backend colors and labels; removed/reconfigured AUD and deprecated the ChangeViewer ERD component.",
+    ],
+  },
+  {
+    title: "AppSec & Support",
+    points: [
+      "PTR 28866338 (MRS audit secret / OTF): Done; PTR 28866236 (secret in DEBUG logs): Done.",
+      "PTR 30339166 (NextGen UI / CWE-16): Done; PTR 30339167 (CWE-287): Investigated.",
+      "Handled 55 transversal tickets: 33 PTR, 17 IR, 5 other; served as Sheriff 4 times.",
+      "Triaged SDL issues, monitored Error Viewer/performance alerts, and helped Layout/FLS teams.",
+    ],
+  },
+  {
+    title: "Cloud & Releases",
+    points: [
+      "Reduced PCS pods to zero; synced PPT, SKL, and MIG branches; fixed deployment peaks.",
+      "Updated MIG templates, fixed namespace sync across environments, changed the TST ArgoCD URL, and resolved packaging/version issues.",
+      "Supported VTD setup and discussions, TMA demo, CC25 load, and after-hours production monitoring.",
+      "Studied skube and supported platform upgrades, freeze planning, and release readiness.",
+    ],
+  },
+  {
+    title: "Production & Growth",
+    points: [
+      "Production work: TR 38299300 (DMARC load), CHG15267798 (SEC_INFO cleanup), TR 38653755 (AppSec fix), TR 37806022 (DB SSL), TR 38836927 (OVIA PRD).",
+      "Kept DSM/WSR, timesheet, quality, and attendance updates on track; collaborated across FND and Amadeus.",
+      "Built skills in C++, Angular, Java, Artifactory, GAC/security, and GenAI/RAG; contributed to VTD AI.",
+      "Joined technical discussions, demos, learning events, courses, and Indonesian language study.",
+    ],
+  },
+]
+
 const publications = [
   { title: "Implementation and Impact of Sustainable Agriculture and Water Management Solutions in Sadivayal Village, Tamil Nadu", venue: "ICSRF 2025 / Amrita", year: "2025", url: "https://www.amrita.edu/publication/implementation-and-impact-of-sustainable-agriculture-and-water-management-solutions-in-sadivayal-village-tamil-nadu/", tag: "Sustainability" },
   { title: "AasivU: A Framework for Detecting Violence in College Environment using Computer Vision Techniques", venue: "I-SMAC 2024 (IEEE)", year: "2024", url: "https://ieeexplore.ieee.org/document/10714723/", tag: "Computer Vision" },
@@ -405,6 +444,9 @@ function App() {
                   Explore Work <span>→</span>
                 </a>
                 <a className="btn btn-secondary" href="#contact">Get in Touch</a>
+                <a className="btn btn-secondary" href="/Harsha-Vardhan-Resume.pdf" download="Harsha-Vardhan-Resume.pdf">
+                  Download Resume <span>↓</span>
+                </a>
               </div>
             </div>
             <div className="hero-right">
@@ -527,6 +569,19 @@ function App() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="work-highlights">
+            <h3>Work Highlights</h3>
+            <div className="work-highlights-grid">
+              {workHighlights.map((group) => (
+                <article className="work-highlight-card" key={group.title}>
+                  <h4>{group.title}</h4>
+                  <ul>
+                    {group.points.map((point) => <li key={point}>{point}</li>)}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </div>
         </RevealSection>
 
